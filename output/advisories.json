@@ -20,42 +20,42 @@
     "exposure_analysis": {
       "vulnerabilities": [
         "Crawlspace",
-        "NO Sump Pump",
-        "NO Backwater Valve"
+        "No sump pump",
+        "No backwater valve"
       ],
       "coverage_gaps": [
-        "Basement sewer backup damage is UNINSURED",
-        "Surface overland flood runoff is UNINSURED"
+        "Uninsured sewer backup",
+        "Uninsured overland water"
       ]
     },
     "micro_actions": [
       {
         "priority": 1,
         "category": "INDOOR_WATER_PROTECTION",
-        "action": "Clear eavestroughs and downspouts to ensure proper drainage away from the crawlspace.",
-        "rationale": "Heavy rainfall can overwhelm blocked drainage systems, leading to water accumulation and potential crawlspace flooding, which is uninsured."
+        "action": "Clear eavestroughs and downspouts to ensure proper drainage away from the cabin.",
+        "rationale": "Heavy rainfall can overwhelm clogged drainage systems, leading to water pooling and potential ingress into the crawlspace, which is vulnerable due to the lack of a sump pump and backwater valve, and uninsured for water damage."
       },
       {
         "priority": 2,
         "category": "INDOOR_WATER_PROTECTION",
-        "action": "Move any valuables or sensitive items from the crawlspace to higher ground.",
-        "rationale": "With heavy rain and no sump pump or backwater valve, the crawlspace is highly vulnerable to water damage, and sewer backup/overland water is uninsured."
+        "action": "Elevate any valuables or sensitive items in the crawlspace to protect them from potential water ingress.",
+        "rationale": "With a crawlspace and no sump pump or backwater valve, there is a high risk of water accumulation during heavy rainfall, which could damage items stored at ground level. Additionally, sewer backup and overland water are uninsured."
       },
       {
         "priority": 3,
-        "category": "LIFE_SAFETY",
-        "action": "Monitor water levels around the property, especially near the crawlspace entrance, and be prepared for rapid runoff.",
-        "rationale": "Heavy rainfall can lead to rapid water accumulation and localized washouts, posing a risk to the property and personal safety."
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Monitor water levels around the property, especially near the crawlspace entrance, and be prepared to take further action if water starts to accumulate.",
+        "rationale": "Given the heavy rainfall warning and the property's vulnerabilities (crawlspace, no sump pump/backwater valve, uninsured water damage), continuous monitoring is crucial to detect and respond to water accumulation promptly."
       }
     ],
     "safety_status": "VERIFIED_SAFE",
     "channels": {
-      "sms": "Urgent: Heavy rain (80mm) expected. Clear eavestroughs & move crawlspace valuables. Uninsured for flood/sewer backup. Stay safe!",
+      "sms": "Urgent: Heavy rain expected. Clear eavestroughs & elevate crawlspace items. Monitor water levels. Stay safe! #HOM-1051",
       "push_notification": {
         "title": "Urgent: Storm Mitigation Required",
-        "body": "Heavy rain (80mm) expected. Clear eavestroughs & move crawlspace valuables. Uninsured for flood/sewer backup. Monitor water levels."
+        "body": "Heavy rain expected for HOM-1051. Clear eavestroughs, elevate crawlspace items, and monitor water levels to prevent damage. Your property is uninsured for sewer backup and overland water."
       }
     },
-    "dispatch_id": "DISP-CC74382E"
+    "dispatch_id": "DISP-93EE0B96"
   }
 }

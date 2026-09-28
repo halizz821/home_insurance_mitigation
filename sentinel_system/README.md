@@ -262,20 +262,6 @@ When matching properties are detected, Sentinel exports an audited JSON file (`a
 
 ---
 
-## 🧪 Running Tests
-
-The test suite validates the database, spatial mapping, MCP client wrapper, and end-to-end scan pipeline:
-
-```bash
-# Run all tests using uv
-uv run pytest
-
-# Or using pytest directly
-pytest -v
-```
-
----
-
 ## 💡 Codebase Learning Guide
 
 If you are exploring this codebase to learn agent development with MCP:

@@ -204,9 +204,7 @@ Empirical evaluation from `evaluation.xlsx` across **42 diverse Canadian test pr
 ```text
 ├── evaluate_pipeline.py          # LLM-as-a-Judge evaluation runner (OpenAI GPT-4o)
 ├── run_pipeline.py               # End-to-end multi-agent orchestration pipeline
-├── explore_search_alerts.py      # ECCC MCP weather alerts inspection utility
 ├── pyproject.toml                # Project dependencies, build specs & pytest configuration
-├── flowchart.png                 # System architecture & LangGraph ReAct flow diagram
 ├── evaluation.xlsx               # Empirical benchmark report across 42 Canadian properties
 ├── output/
 │   └── advisories.json           # Consolidated agent mitigation advisories & dispatch audits
