@@ -43,21 +43,21 @@ In property and casualty (P&C) insurance, timely awareness of catastrophe perils
 flowchart TD
     %% Data Sources
     subgraph Sources ["Data Sources"]
-        ECCC["Environment Canada Weather Alerts<br/>(Live MCP Server or Simulated Warnings)"]
-        DB[("SQLite: insurance_portfolio.db<br/>(properties, policies, policyholders)")]
+        ECCC["ECCC Weather Warnings<br/>(Live MCP / Simulated)"]
+        DB[("SQLite Database<br/>insurance_portfolio.db")]
     end
 
     %% Sentinel Pipeline
-    subgraph Pipeline ["SentinelAgent Macro-Screening Pipeline: scan_national_portfolio()"]
-        A["1. Sweep Active Warnings with GeoJSON<br/><b>mcp_client.search_alerts()</b>"]
-        B["2. Filter Property-Threatening Perils<br/><b>SentinelAgent.classify_peril()</b><br/><i>Ignores non-structural advisories: fog, frost, heat</i>"]
-        C["3. Compute Bounding Envelope<br/><b>zone_mapper.get_geometry_bounding_box()</b><br/><i>Extracts min/max lat & lon coordinates</i>"]
-        D["4. Fast Bounding-Box SQL Query<br/><b>database.query_properties_by_bbox()</b><br/><i>Indexes database properties in rough hazard box</i>"]
-        E["5. Precise Point-in-Polygon Containment<br/><b>zone_mapper.match_properties_to_alert_polygon()</b><br/><i>Shapely GEOS C-accelerated prep.intersects()</i>"]
-        F["6. Assemble Enriched Candidate Queue<br/><b>SentinelAgent._build_candidate()</b><br/><i>Constructs AtRiskPropertyCandidate schemas</i>"]
+    subgraph Pipeline ["Sentinel Macro-Screening Pipeline"]
+        A["1. Sweep Warnings<br/><b>mcp_client.search_alerts()</b>"]
+        B["2. Filter Property Perils<br/><b>SentinelAgent.classify_peril()</b>"]
+        C["3. Compute Bounding Box<br/><b>zone_mapper.get_geometry_bounding_box()</b>"]
+        D["4. SQL BBox Filter<br/><b>database.query_properties_by_bbox()</b>"]
+        E["5. Point-in-Polygon Match<br/><b>zone_mapper.match_properties_to_alert_polygon()</b>"]
+        F["6. Build Candidates<br/><b>SentinelAgent._build_candidate()</b>"]
 
         A --> B
-        B -->|Monitored Peril| C
+        B -->|Severe Peril| C
         C --> D
         D --> E
         E -->|Inside Polygon| F
@@ -65,8 +65,8 @@ flowchart TD
 
     %% Outputs
     subgraph Outputs ["Outputs"]
-        CLI["Interactive Rich Terminal Table<br/><i>Peril, severity, urgency & endorsement gaps</i>"]
-        JSON["at_risk_candidates.json<br/><i>Audited queue for Stage 2 Specialist Deep-Dive</i>"]
+        CLI["Rich Terminal Table"]
+        JSON["at_risk_candidates.json"]
     end
 
     ECCC --> A
