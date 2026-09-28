@@ -12,8 +12,10 @@ from rich.table import Table
 from rich.panel import Panel
 from rich import box
 
-# Ensure sentinel_system root is on sys.path
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+# Ensure project root is on sys.path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from sentinel_system.db.database import init_db, DEFAULT_DB_PATH
 from sentinel_system.scanner.sentinel_agent import SentinelAgent

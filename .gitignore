@@ -9,6 +9,9 @@ __pycache__/
 ~$*
 *.tmp
 at_risk_candidates.json
+explore_search_alerts.py
+flowchart.png
+notes.docx
 
 /sentinel_system/*.toml
 /sentinel_system/*.lock

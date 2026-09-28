@@ -70,21 +70,26 @@ graph TD
 
 This project integrates with the [MCP Weather Alert Server](https://github.com/halizz821/MCP_wearther_alert):
 
-1. **Dependency Registration**: In `pyproject.toml`, the server repository is installed directly via Git:
+1. **Dependency Registration**: In root `pyproject.toml`, the server repository is installed directly via Git:
    ```toml
    [tool.uv.sources]
    environment-canada-mcp = { git = "https://github.com/halizz821/MCP_wearther_alert" }
    ```
-2. **Standard I/O Subprocess Transport**: In `tools/mcp_client.py`, the official MCP SDK launches the server process in the background:
+2. **LangChain MCP Integration**: In `tools/mcp_client.py`, `langchain.mcp.MCPAdapter` manages the stdio background subprocess:
    ```python
-   # Spawns: python -m environment_canada_mcp
-   server_params = StdioServerParameters(command=sys.executable, args=["-m", "environment_canada_mcp"])
-   async with stdio_client(server_params) as (read_stream, write_stream):
-       async with ClientSession(read_stream, write_stream) as session:
-           await session.initialize()
-           # Invokes MCP tools:
-           await session.call_tool("search_alerts", arguments={...})
+   from langchain.mcp import MCPAdapter
+
+   WEATHER_MCP_CONFIG = {
+       "mcpServers": {
+           "environment_canada": {
+               "command": sys.executable,
+               "args": ["-m", "environment_canada_mcp"],
+               "env": os.environ,
+           }
+       }
+   }
    ```
+   The `EnvironmentCanadaMCPClient` wraps the underlying async MCP tools, exposing a clean, synchronous interface (`get_alert_summary`, `search_alerts`, `get_alerts_near_coordinates`) and built-in simulation support for offline testing.
 
 ---
 
@@ -92,23 +97,26 @@ This project integrates with the [MCP Weather Alert Server](https://github.com/h
 
 ```text
 sentinel_system/
+├── README.md                   # Sentinel system documentation
 ├── run_sentinel.py             # CLI entry point with Rich terminal dashboard
-├── pyproject.toml              # Dependencies & Git source for MCP server
-├── at_risk_candidates.json     # Generated output for downstream agents
+├── at_risk_candidates.json     # Generated candidate queue for downstream agents
 ├── db/
+│   ├── __init__.py             # Database package exports (init_db, get_connection)
 │   ├── schema.sql              # SQLite DDL (policyholders, properties, policies)
-│   ├── seed_data.py            # 52 synthetic Canadian properties (ON, AB, SK)
-│   ├── database.py             # Connection manager & spatial FSA queries
-│   └── insurance_portfolio.db  # Local SQLite database
+│   ├── seed_data.py            # Synthetic dataset generator for 42 Canadian properties
+│   ├── database.py             # Connection manager, bounding-box & spatial SQL queries
+│   └── insurance_portfolio.db  # Local SQLite portfolio database
 ├── scanner/
+│   ├── __init__.py             # Scanner package exports (SentinelAgent, schemas, zone_mapper)
 │   ├── schemas.py              # Pydantic models (AtRiskPropertyCandidate, ScanSummary)
-│   ├── zone_mapper.py          # ECCC forecast zones -> Canadian FSAs
+│   ├── zone_mapper.py          # ECCC alert geometry parsing & Shapely point-in-polygon correlation
 │   └── sentinel_agent.py       # Core orchestration & catastrophe peril filtering
 ├── tools/
-│   └── mcp_client.py           # Subprocess stdio client for Environment Canada MCP
+│   ├── __init__.py             # Tools package exports
+│   └── mcp_client.py           # Synchronous client wrapper for langchain.mcp MCPAdapter
 └── tests/
     ├── test_db.py              # Database & query tests
-    ├── test_mcp_client.py      # MCP client wrapper tests
+    ├── test_mcp_client.py      # MCP client wrapper & stdio tests
     ├── test_sentinel.py        # End-to-end scanner tests
     └── test_zone_mapper.py     # Weather zone to postal code mapping tests
 ```
@@ -273,8 +281,8 @@ pytest -v
 If you are exploring this codebase to learn agent development with MCP:
 
 1. **[scanner/schemas.py](scanner/schemas.py)**: Start here to see the data model contract (`AtRiskPropertyCandidate`).
-2. **[tools/mcp_client.py](tools/mcp_client.py)**: Study how Python uses the official `mcp` library to communicate with an MCP server using `stdio_client` and `ClientSession`.
-3. **[scanner/zone_mapper.py](scanner/zone_mapper.py)**: Learn how unstructured meteorological forecast zone names are translated into structured postal sortation areas (FSAs).
+2. **[tools/mcp_client.py](tools/mcp_client.py)**: Study how Python uses `langchain.mcp.MCPAdapter` to communicate with the MCP server subprocess via stdio and expose a clean synchronous interface.
+3. **[scanner/zone_mapper.py](scanner/zone_mapper.py)**: Learn how meteorological forecast alert geometries and polygon coordinate rings are resolved using Shapely point-in-polygon tests.
 4. **[scanner/sentinel_agent.py](scanner/sentinel_agent.py)**: See how the orchestrator ties together MCP data retrieval, deterministic peril filtering, and SQL queries.
 5. **[run_sentinel.py](run_sentinel.py)**: Review how the command-line interface handles arguments and renders interactive tables with `rich`.
 
