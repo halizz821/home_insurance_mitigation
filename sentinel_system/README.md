@@ -13,7 +13,6 @@ Part of the **[Home Insurance Loss Mitigation Agentic System](https://github.com
 - [How It Works](#how-it-works)
 - [Connection to Environment Canada MCP](#connection-to-environment-canada-mcp)
 - [Project Architecture](#project-architecture)
-- [Installation & Setup](#installation--setup)
 - [Usage Guide](#usage-guide)
   - [1. Real-time Live Weather Scan](#1-real-time-live-weather-scan)
   - [2. Simulated Warning Scan (Demo / Testing)](#2-simulated-warning-scan-demo--testing)
@@ -21,7 +20,6 @@ Part of the **[Home Insurance Loss Mitigation Agentic System](https://github.com
   - [4. Reseeding the Portfolio Database](#4-reseeding-the-portfolio-database)
   - [5. CLI Options Reference](#5-cli-options-reference)
 - [Understanding the Output](#understanding-the-output)
-- [Running Tests](#running-tests)
 - [Codebase Learning Guide](#codebase-learning-guide)
 
 ---
@@ -123,51 +121,15 @@ sentinel_system/
 
 ---
 
-## 🚀 Installation & Setup
-
-### Prerequisites
-- Python 3.10 or higher
-- [uv](https://docs.astral.sh/uv/) (recommended) or standard `pip` / `venv`
-- Git installed on your system
-
-### Option 1: Using `uv` (Recommended)
-```bash
-# Clone and navigate into the sentinel_system directory
-cd sentinel_system
-
-# Synchronize dependencies and virtual environment
-uv sync
-```
-
-### Option 2: Using standard `pip`
-```bash
-# Create and activate virtual environment
-python -m venv .venv
-
-# Windows:
-.venv\Scripts\activate
-# Linux / macOS:
-source .venv/bin/activate
-
-# Install dependencies and Git package
-pip install -e .
-```
-
----
-
 ## 📖 Usage Guide
 
-All operations are run through `run_sentinel.py`.
+Sentinel System operations are run through `run_sentinel.py` from the project repository root.
 
 ### 1. Real-time Live Weather Scan
 To query live weather alerts directly from Environment Canada across the entire country:
 
 ```bash
-# Using uv:
-uv run python run_sentinel.py
-
-# Or directly in activated virtual environment:
-python run_sentinel.py
+uv run python sentinel_system/run_sentinel.py
 ```
 *Note: If there are currently no active severe weather warnings in Canada, the scan will report zero exposed properties.*
 
@@ -177,7 +139,7 @@ python run_sentinel.py
 Because severe weather is seasonal and unpredictable, a realistic simulation mode is built-in. It injects a Kingston Severe Thunderstorm Warning, an Ottawa Tornado Warning, and a Calgary Snowfall Warning (while ignoring minor fog advisories):
 
 ```bash
-uv run python run_sentinel.py --simulate
+uv run python sentinel_system/run_sentinel.py --simulate
 ```
 
 This demonstrates the end-to-end filtering, spatial matching, and table rendering even on clear weather days.
@@ -188,20 +150,20 @@ This demonstrates the end-to-end filtering, spatial matching, and table renderin
 To restrict the macro scan to a specific Canadian province (e.g. Ontario or Alberta):
 
 ```bash
-# Filter live alerts for Ontario
-uv run python run_sentinel.py --province ON
+# Filter alerts for Ontario
+uv run python sentinel_system/run_sentinel.py --simulate --province ON
 
-# Filter live alerts for Alberta
-uv run python run_sentinel.py --province AB
+# Filter alerts for Alberta
+uv run python sentinel_system/run_sentinel.py --simulate --province AB
 ```
 
 ---
 
 ### 4. Reseeding the Portfolio Database
-The project comes with a synthetic database of 50 Canadian residential properties spread across Kingston, Ottawa, Toronto, Calgary, and Edmonton. To reset or reseed the database:
+The project comes with a synthetic database of Canadian residential properties spread across Kingston, Ottawa, Toronto, Calgary, and Edmonton. To reset or reseed the database:
 
 ```bash
-uv run python run_sentinel.py --reseed
+uv run python sentinel_system/run_sentinel.py --reseed
 ```
 
 ---
