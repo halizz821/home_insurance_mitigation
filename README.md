@@ -202,16 +202,45 @@ Empirical evaluation from `evaluation.xlsx` across **42 diverse Canadian test pr
 ## 📁 Repository Structure
 
 ```text
-├── evaluate_pipeline.py          # LLM-as-a-Judge evaluation runner
-├── run_pipeline.py               # End-to-end agentic execution pipeline
-├── flowchart.png                 # Architecture and ReAct diagram
-├── evaluation/                   # OpenAI GPT-4o judge, rubrics & Excel exporter
-├── property_investigator/        # Tier 2: LangGraph ReAct agent, safety guardrail & context distillers
-│   └── context/                  # Semantic distillers & prompt engineering
-├── sentinel_system/              # Tier 1: Macro screening & GIS spatial engine
-│   └── db/                       # SQLite schema, seed generator & database
-└── output/
-    └── advisories.json           # Consolidated agent mitigation advisories
+├── evaluate_pipeline.py          # LLM-as-a-Judge evaluation runner (OpenAI GPT-4o)
+├── run_pipeline.py               # End-to-end multi-agent orchestration pipeline
+├── explore_search_alerts.py      # ECCC MCP weather alerts inspection utility
+├── pyproject.toml                # Project dependencies, build specs & pytest configuration
+├── flowchart.png                 # System architecture & LangGraph ReAct flow diagram
+├── evaluation.xlsx               # Empirical benchmark report across 42 Canadian properties
+├── output/
+│   └── advisories.json           # Consolidated agent mitigation advisories & dispatch audits
+├── evaluation/                   # LLM-as-a-Judge Evaluation Module
+│   ├── llm_judge.py              # GPT-4o multi-prompt evaluator (Faithfulness, Relevance, Clarity)
+│   ├── rubrics.py                # 5-point evaluation rubrics & scoring criteria
+│   ├── excel_exporter.py         # Formatted two-sheet Excel report generator
+│   └── state.py                  # Pydantic evaluation schemas & evaluation models
+├── sentinel_system/              # Tier 1: Macro Screening & GIS Spatial Engine
+│   ├── run_sentinel.py           # Standalone Sentinel runner for portfolio hazard screening
+│   ├── db/
+│   │   ├── database.py           # SQLite connection manager, bounding-box & FSA queries
+│   │   ├── schema.sql            # Relational schema (properties, policies, dispatches)
+│   │   ├── seed_data.py          # Synthetic dataset generator for 42 Canadian properties
+│   │   └── insurance_portfolio.db# SQLite portfolio database
+│   ├── scanner/
+│   │   ├── sentinel_agent.py     # SentinelAgent: Peril classifier & portfolio GIS scanner
+│   │   ├── schemas.py            # Pydantic models (AtRiskPropertyCandidate, ScanSummary)
+│   │   └── zone_mapper.py        # GIS point-in-polygon & bounding-box spatial geometry
+│   ├── tools/
+│   │   └── mcp_client.py         # Synchronous Environment Canada MCP adapter & simulated feed
+│   └── tests/                    # Sentinel unit & integration tests (db, mcp, scanner, zones)
+├── property_investigator/        # Tier 2: Micro Deep Dive Specialist (LangGraph ReAct)
+│   ├── run_property_agent.py     # Property specialist investigation loop & CLI visualizer
+│   ├── agent/
+│   │   ├── graph.py              # LangGraph StateGraph (ReAct cycle + Reflection loop)
+│   │   ├── nodes.py              # Agent nodes (agent_reasoner, advisory_formulator, safety_guardrail)
+│   │   └── state.py              # LangGraph state schema (working memory scratchpad & payloads)
+│   ├── context/
+│   │   ├── distillers.py         # Semantic distillers (CAP alert compaction & policy gap extraction)
+│   │   └── prompts.py            # System prompts & reflection critique templates
+│   ├── tools/
+│   │   └── database_tools.py     # LangChain @tool definitions (property, policy, weather perils)
+│   └── tests/                    # Specialist test suite (graph, tools, distillers, guardrails)
 ```
 
 ---
