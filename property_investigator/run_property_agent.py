@@ -18,12 +18,15 @@ import sys
 from typing import Any, Dict, List, Optional
 from dotenv import load_dotenv
 
-# Ensure property_agent root is on sys.path
+# Ensure property_agent root and project root are on sys.path
 AGENT_ROOT = Path(__file__).resolve().parent
-if str(AGENT_ROOT) not in sys.path:
-    sys.path.insert(0, str(AGENT_ROOT))
+PROJECT_ROOT = AGENT_ROOT.parent
+for p in [str(PROJECT_ROOT), str(AGENT_ROOT)]:
+    if p not in sys.path:
+        sys.path.insert(0, p)
 
 # Load .env
+load_dotenv(PROJECT_ROOT / ".env")
 load_dotenv(AGENT_ROOT / ".env")
 
 from rich.console import Console
@@ -34,8 +37,8 @@ from rich.text import Text
 
 from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
 
-from .agent.graph import build_property_agent_graph
-from .agent.state import PropertyAgentState
+from property_investigator.agent.graph import build_property_agent_graph
+from property_investigator.agent.state import PropertyAgentState
 
 if sys.platform == "win32":
     try:
