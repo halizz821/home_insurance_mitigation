@@ -1,0 +1,61 @@
+{
+  "HOM-1051": {
+    "property_id": "HOM-1051",
+    "policyholder_name": "Gordon Cardinal",
+    "contact": {
+      "phone": "+1-780-555-1051",
+      "email": "gordon.cardinal@example.ca"
+    },
+    "hazard_summary": {
+      "event": "rainfall warning in effect",
+      "wind_gust_kmh": null,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": 80.0,
+      "snowfall_cm": 0.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Crawlspace",
+        "NO Sump Pump",
+        "NO Backwater Valve"
+      ],
+      "coverage_gaps": [
+        "Basement sewer backup damage is UNINSURED",
+        "Surface overland flood runoff is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Clear eavestroughs and downspouts to ensure proper drainage away from the crawlspace.",
+        "rationale": "Heavy rainfall can overwhelm blocked drainage systems, leading to water accumulation and potential crawlspace flooding, which is uninsured."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Move any valuables or sensitive items from the crawlspace to higher ground.",
+        "rationale": "With heavy rain and no sump pump or backwater valve, the crawlspace is highly vulnerable to water damage, and sewer backup/overland water is uninsured."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "Monitor water levels around the property, especially near the crawlspace entrance, and be prepared for rapid runoff.",
+        "rationale": "Heavy rainfall can lead to rapid water accumulation and localized washouts, posing a risk to the property and personal safety."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy rain (80mm) expected. Clear eavestroughs & move crawlspace valuables. Uninsured for flood/sewer backup. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Heavy rain (80mm) expected. Clear eavestroughs & move crawlspace valuables. Uninsured for flood/sewer backup. Monitor water levels."
+      }
+    },
+    "dispatch_id": "DISP-CC74382E"
+  }
+}

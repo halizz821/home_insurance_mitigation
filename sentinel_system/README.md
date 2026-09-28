@@ -1,0 +1,284 @@
+# 🛡️ Sentinel System: Portfolio Weather Warning Scanner
+
+Part of the **[Home Insurance Loss Mitigation Agentic System](https://github.com/halizz821/home_insurance_mitigation)**.
+
+> **Tier 1 Macro-Screening Sentinel for Canadian P&C Insurance**  
+> Monitors real-time Canadian weather warnings, classifies property-threatening perils, and spatially correlates affected zones to policyholders in your portfolio database.
+
+---
+
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [How It Works](#how-it-works)
+- [Connection to Environment Canada MCP](#connection-to-environment-canada-mcp)
+- [Project Architecture](#project-architecture)
+- [Installation & Setup](#installation--setup)
+- [Usage Guide](#usage-guide)
+  - [1. Real-time Live Weather Scan](#1-real-time-live-weather-scan)
+  - [2. Simulated Warning Scan (Demo / Testing)](#2-simulated-warning-scan-demo--testing)
+  - [3. Province Filtering](#3-province-filtering)
+  - [4. Reseeding the Portfolio Database](#4-reseeding-the-portfolio-database)
+  - [5. CLI Options Reference](#5-cli-options-reference)
+- [Understanding the Output](#understanding-the-output)
+- [Running Tests](#running-tests)
+- [Codebase Learning Guide](#codebase-learning-guide)
+
+---
+
+## 🎯 Overview
+
+In property and casualty (P&C) insurance, timely awareness of catastrophe perils (tornadoes, severe thunderstorms, blizzards, freezing rain) is critical to protect policyholders and prepare claims operations.
+
+**Sentinel System** acts as the high-speed **Tier 1 Macro-Screening Sentinel** in the agentic pipeline:
+- Connects directly to the **Environment Canada MCP Server** to sweep national weather alerts with GeoJSON geometry (or loads standardized simulated warnings).
+- Filters out non-structural minor advisories (such as fog, dust, or frost) to focus strictly on property-threatening perils.
+- Performs true **GIS Point-in-Polygon spatial correlation** using `shapely`: matches warning polygons directly to property coordinates across all Canadian provinces and territories.
+- Executes accelerated bounding-box SQL queries against the insured portfolio database (`insurance_portfolio.db`).
+- Generates an audited, deduplicated list of at-risk properties (`at_risk_candidates.json`) ready for downstream specialist investigation.
+
+---
+
+## ⚙️ How It Works
+
+```mermaid
+graph TD
+    subgraph Data Sources
+        ECCC["Environment Canada Alerts (with GeoJSON Geometry)"]
+        DB[(SQLite Portfolio Database)]
+    end
+
+    subgraph Sentinel Agent Pipeline
+        ECCC -->|1. Sweep Warnings| Fetch[mcp_client.py]
+        Fetch -->|2. Peril Filter| Classify[sentinel_agent.py]
+        Classify -->|3. Extract Bounding Box| Mapper[zone_mapper.py]
+        Mapper -->|4. SQL BBox Query| Query[database.py]
+        DB --> Query
+        Query -->|5. Point-in-Polygon| GIS[Shapely Prep Intersects]
+        GIS -->|6. Build Candidates| Format[schemas.py]
+    end
+
+    subgraph Outputs
+        Format --> CLI[Rich Terminal Table]
+        Format --> JSON[at_risk_candidates.json]
+    end
+```
+
+---
+
+## 🔌 Connection to Environment Canada MCP
+
+This project integrates with the [MCP Weather Alert Server](https://github.com/halizz821/MCP_wearther_alert):
+
+1. **Dependency Registration**: In `pyproject.toml`, the server repository is installed directly via Git:
+   ```toml
+   [tool.uv.sources]
+   environment-canada-mcp = { git = "https://github.com/halizz821/MCP_wearther_alert" }
+   ```
+2. **Standard I/O Subprocess Transport**: In `tools/mcp_client.py`, the official MCP SDK launches the server process in the background:
+   ```python
+   # Spawns: python -m environment_canada_mcp
+   server_params = StdioServerParameters(command=sys.executable, args=["-m", "environment_canada_mcp"])
+   async with stdio_client(server_params) as (read_stream, write_stream):
+       async with ClientSession(read_stream, write_stream) as session:
+           await session.initialize()
+           # Invokes MCP tools:
+           await session.call_tool("search_alerts", arguments={...})
+   ```
+
+---
+
+## 📁 Project Architecture
+
+```text
+sentinel_system/
+├── run_sentinel.py             # CLI entry point with Rich terminal dashboard
+├── pyproject.toml              # Dependencies & Git source for MCP server
+├── at_risk_candidates.json     # Generated output for downstream agents
+├── db/
+│   ├── schema.sql              # SQLite DDL (policyholders, properties, policies)
+│   ├── seed_data.py            # 52 synthetic Canadian properties (ON, AB, SK)
+│   ├── database.py             # Connection manager & spatial FSA queries
+│   └── insurance_portfolio.db  # Local SQLite database
+├── scanner/
+│   ├── schemas.py              # Pydantic models (AtRiskPropertyCandidate, ScanSummary)
+│   ├── zone_mapper.py          # ECCC forecast zones -> Canadian FSAs
+│   └── sentinel_agent.py       # Core orchestration & catastrophe peril filtering
+├── tools/
+│   └── mcp_client.py           # Subprocess stdio client for Environment Canada MCP
+└── tests/
+    ├── test_db.py              # Database & query tests
+    ├── test_mcp_client.py      # MCP client wrapper tests
+    ├── test_sentinel.py        # End-to-end scanner tests
+    └── test_zone_mapper.py     # Weather zone to postal code mapping tests
+```
+
+---
+
+## 🚀 Installation & Setup
+
+### Prerequisites
+- Python 3.10 or higher
+- [uv](https://docs.astral.sh/uv/) (recommended) or standard `pip` / `venv`
+- Git installed on your system
+
+### Option 1: Using `uv` (Recommended)
+```bash
+# Clone and navigate into the sentinel_system directory
+cd sentinel_system
+
+# Synchronize dependencies and virtual environment
+uv sync
+```
+
+### Option 2: Using standard `pip`
+```bash
+# Create and activate virtual environment
+python -m venv .venv
+
+# Windows:
+.venv\Scripts\activate
+# Linux / macOS:
+source .venv/bin/activate
+
+# Install dependencies and Git package
+pip install -e .
+```
+
+---
+
+## 📖 Usage Guide
+
+All operations are run through `run_sentinel.py`.
+
+### 1. Real-time Live Weather Scan
+To query live weather alerts directly from Environment Canada across the entire country:
+
+```bash
+# Using uv:
+uv run python run_sentinel.py
+
+# Or directly in activated virtual environment:
+python run_sentinel.py
+```
+*Note: If there are currently no active severe weather warnings in Canada, the scan will report zero exposed properties.*
+
+---
+
+### 2. Simulated Warning Scan (Demo / Testing)
+Because severe weather is seasonal and unpredictable, a realistic simulation mode is built-in. It injects a Kingston Severe Thunderstorm Warning, an Ottawa Tornado Warning, and a Calgary Snowfall Warning (while ignoring minor fog advisories):
+
+```bash
+uv run python run_sentinel.py --simulate
+```
+
+This demonstrates the end-to-end filtering, spatial matching, and table rendering even on clear weather days.
+
+---
+
+### 3. Province Filtering
+To restrict the macro scan to a specific Canadian province (e.g. Ontario or Alberta):
+
+```bash
+# Filter live alerts for Ontario
+uv run python run_sentinel.py --province ON
+
+# Filter live alerts for Alberta
+uv run python run_sentinel.py --province AB
+```
+
+---
+
+### 4. Reseeding the Portfolio Database
+The project comes with a synthetic database of 50 Canadian residential properties spread across Kingston, Ottawa, Toronto, Calgary, and Edmonton. To reset or reseed the database:
+
+```bash
+uv run python run_sentinel.py --reseed
+```
+
+---
+
+### 5. CLI Options Reference
+
+| Argument | Short Flag | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `--simulate` | `-s` | `False` | Run scan against simulated severe warnings. |
+| `--province` | `-p` | `None` | Two-letter Canadian province code (`ON`, `AB`, `BC`, etc.). |
+| `--output` | `-o` | `at_risk_candidates.json` | Destination path for the exported JSON candidates. |
+| `--reseed` | | `False` | Reset and reload synthetic property portfolio data. |
+| `--help` | `-h` | | Show help message with all available options. |
+
+---
+
+## 📄 Understanding the Output
+
+When matching properties are detected, Sentinel exports an audited JSON file (`at_risk_candidates.json`). Each candidate contains the complete exposure context needed for underwriting or policyholder contact:
+
+```json
+[
+  {
+    "property_id": "HOM-1001",
+    "policy_id": "POL-1001",
+    "policy_number": "POL-ON-2026-1001",
+    "policyholder_name": "Eleanor Vance",
+    "policyholder_phone": "+1-613-555-0101",
+    "policyholder_email": "eleanor.vance@example.ca",
+    "address": "142 Johnson St",
+    "city": "Kingston",
+    "province": "ON",
+    "postal_code": "K7L 1X9",
+    "fsa": "K7L",
+    "coordinates": {
+      "latitude": 44.2298,
+      "longitude": -76.486
+    },
+    "dwelling_type": "Single Family Detached",
+    "roof_type": "Asphalt Shingle",
+    "roof_age_years": 14,
+    "basement_type": "Full Finished",
+    "has_sump_pump": true,
+    "has_backwater_valve": false,
+    "base_deductible": 1000.0,
+    "wind_hail_deductible": 2500.0,
+    "sewer_backup_endorsed": true,
+    "overland_water_endorsed": true,
+    "triggering_alert_id": "urn:eccc:alert:20260922:on-kingston-ts-warning",
+    "feature_id": "043200",
+    "triggering_event": "Severe Thunderstorm Warning",
+    "headline": "Severe thunderstorm warning in effect",
+    "urgency": "Immediate",
+    "severity": "Severe"
+  }
+]
+```
+
+---
+
+## 🧪 Running Tests
+
+The test suite validates the database, spatial mapping, MCP client wrapper, and end-to-end scan pipeline:
+
+```bash
+# Run all tests using uv
+uv run pytest
+
+# Or using pytest directly
+pytest -v
+```
+
+---
+
+## 💡 Codebase Learning Guide
+
+If you are exploring this codebase to learn agent development with MCP:
+
+1. **[scanner/schemas.py](scanner/schemas.py)**: Start here to see the data model contract (`AtRiskPropertyCandidate`).
+2. **[tools/mcp_client.py](tools/mcp_client.py)**: Study how Python uses the official `mcp` library to communicate with an MCP server using `stdio_client` and `ClientSession`.
+3. **[scanner/zone_mapper.py](scanner/zone_mapper.py)**: Learn how unstructured meteorological forecast zone names are translated into structured postal sortation areas (FSAs).
+4. **[scanner/sentinel_agent.py](scanner/sentinel_agent.py)**: See how the orchestrator ties together MCP data retrieval, deterministic peril filtering, and SQL queries.
+5. **[run_sentinel.py](run_sentinel.py)**: Review how the command-line interface handles arguments and renders interactive tables with `rich`.
+
+---
+
+> [!NOTE]
+> **Disclaimer on Portfolio Data**: All policyholder names, contact numbers, email addresses, property details, and policy numbers in `insurance_portfolio.db` (and `seed_data.py`) are entirely synthetic/dummy data generated solely for demonstration, testing, and benchmarking purposes. None of the records represent real individuals, actual properties, or active insurance policies.

@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "home-policy-weather-alert-pipeline"
+version = "0.1.0"
+description = "Autonomous Home Policy Weather Alert & Mitigation Pipeline"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "langgraph>=0.2.20",
+    "langchain[mcp]>=1.4.0",
+    "langchain-core>=0.3.0",
+    "langchain-google-genai>=2.0.0",
+    "mcp[cli]>=1.2.0",
+    "pydantic>=2.0.0",
+    "rich>=13.0.0",
+    "httpx>=0.27.0",
+    "shapely>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "environment-canada-mcp",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ipykernel>=7.3.0",
+    "notebook>=7.6.3",
+    "openai>=1.50.0",
+    "pandas>=2.0.0",
+    "openpyxl>=3.1.0",
+    "langchain-openai>=0.2.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+environment-canada-mcp = { git = "https://github.com/halizz821/MCP_wearther_alert" }
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["sentinel_system", "property_investigator", "."]
