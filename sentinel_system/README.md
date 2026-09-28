@@ -40,26 +40,39 @@ In property and casualty (P&C) insurance, timely awareness of catastrophe perils
 ## ⚙️ How It Works
 
 ```mermaid
-graph TD
-    subgraph Data Sources
-        ECCC["Environment Canada Alerts (with GeoJSON Geometry)"]
-        DB[(SQLite Portfolio Database)]
+flowchart TD
+    %% Data Sources
+    subgraph Sources ["Data Sources"]
+        ECCC["Environment Canada Weather Alerts<br/>(Live MCP Server or Simulated Warnings)"]
+        DB[("SQLite: insurance_portfolio.db<br/>(properties, policies, policyholders)")]
     end
 
-    subgraph Sentinel Agent Pipeline
-        ECCC -->|1. Sweep Warnings| Fetch[mcp_client.py]
-        Fetch -->|2. Peril Filter| Classify[sentinel_agent.py]
-        Classify -->|3. Extract Bounding Box| Mapper[zone_mapper.py]
-        Mapper -->|4. SQL BBox Query| Query[database.py]
-        DB --> Query
-        Query -->|5. Point-in-Polygon| GIS[Shapely Prep Intersects]
-        GIS -->|6. Build Candidates| Format[schemas.py]
+    %% Sentinel Pipeline
+    subgraph Pipeline ["SentinelAgent Macro-Screening Pipeline: scan_national_portfolio()"]
+        A["1. Sweep Active Warnings with GeoJSON<br/><b>mcp_client.search_alerts()</b>"]
+        B["2. Filter Property-Threatening Perils<br/><b>SentinelAgent.classify_peril()</b><br/><i>Ignores non-structural advisories: fog, frost, heat</i>"]
+        C["3. Compute Bounding Envelope<br/><b>zone_mapper.get_geometry_bounding_box()</b><br/><i>Extracts min/max lat & lon coordinates</i>"]
+        D["4. Fast Bounding-Box SQL Query<br/><b>database.query_properties_by_bbox()</b><br/><i>Indexes database properties in rough hazard box</i>"]
+        E["5. Precise Point-in-Polygon Containment<br/><b>zone_mapper.match_properties_to_alert_polygon()</b><br/><i>Shapely GEOS C-accelerated prep.intersects()</i>"]
+        F["6. Assemble Enriched Candidate Queue<br/><b>SentinelAgent._build_candidate()</b><br/><i>Constructs AtRiskPropertyCandidate schemas</i>"]
+
+        A --> B
+        B -->|Monitored Peril| C
+        C --> D
+        D --> E
+        E -->|Inside Polygon| F
     end
 
-    subgraph Outputs
-        Format --> CLI[Rich Terminal Table]
-        Format --> JSON[at_risk_candidates.json]
+    %% Outputs
+    subgraph Outputs ["Outputs"]
+        CLI["Interactive Rich Terminal Table<br/><i>Peril, severity, urgency & endorsement gaps</i>"]
+        JSON["at_risk_candidates.json<br/><i>Audited queue for Stage 2 Specialist Deep-Dive</i>"]
     end
+
+    ECCC --> A
+    DB --> D
+    F --> CLI
+    F --> JSON
 ```
 
 ---
