@@ -1,0 +1,610 @@
+{
+  "HOM-1001": {
+    "property_id": "HOM-1001",
+    "city": "Kingston",
+    "province": "ON",
+    "dwelling_type": "detached",
+    "triggering_event": "Severe Thunderstorm Warning",
+    "mandatory_actions": [
+      "Move vehicles into a garage, carport, or protective shelter to avoid hail damage from nickel-sized hail",
+      "Secure or store patio furniture, garbage bins, and loose outdoor items to prevent projectile damage in 90 km/h wind gusts",
+      "Close and latch all windows, exterior doors, and storm shutters tightly to prevent water infiltration and wind pressurization"
+    ]
+  },
+  "HOM-1002": {
+    "property_id": "HOM-1002",
+    "city": "Kingston",
+    "province": "ON",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Severe Thunderstorm Warning",
+    "mandatory_actions": [
+      "Move vehicles into a garage, carport, or protective shelter to avoid hail damage from nickel-sized hail",
+      "Secure or store patio furniture, garbage bins, and loose outdoor items to prevent projectile damage in 90 km/h wind gusts",
+      "Close and latch all windows, exterior doors, and storm shutters tightly to prevent water infiltration and wind pressurization"
+    ]
+  },
+  "HOM-1003": {
+    "property_id": "HOM-1003",
+    "city": "Kingston",
+    "province": "ON",
+    "dwelling_type": "townhouse",
+    "triggering_event": "Severe Thunderstorm Warning",
+    "mandatory_actions": [
+      "Move vehicles into a garage, carport, or protective shelter to avoid hail damage from nickel-sized hail",
+      "Secure or store patio furniture, garbage bins, and loose outdoor items to prevent projectile damage in 90 km/h wind gusts",
+      "Close and latch all windows, exterior doors, and storm shutters tightly to prevent water infiltration and wind pressurization"
+    ]
+  },
+  "HOM-1004": {
+    "property_id": "HOM-1004",
+    "city": "Kingston",
+    "province": "ON",
+    "dwelling_type": "highrise_condo",
+    "triggering_event": "Severe Thunderstorm Warning",
+    "mandatory_actions": [
+      "Clear balcony of all loose furniture, planters, and lightweight items to prevent windborne hazards in 90 km/h gusts",
+      "Close and tightly latch all balcony doors and windows to prevent water ingress and wind pressurization during the severe storm"
+    ]
+  },
+  "HOM-1005": {
+    "property_id": "HOM-1005",
+    "city": "Kingston",
+    "province": "ON",
+    "dwelling_type": "detached",
+    "triggering_event": "Severe Thunderstorm Warning",
+    "mandatory_actions": [
+      "Move vehicles into a garage, carport, or protective shelter to avoid hail damage from nickel-sized hail",
+      "Secure or store patio furniture, garbage bins, and loose outdoor items to prevent projectile damage in 90 km/h wind gusts",
+      "Close and latch all windows, exterior doors, and storm shutters tightly to prevent water infiltration and wind pressurization"
+    ]
+  },
+  "HOM-1006": {
+    "property_id": "HOM-1006",
+    "city": "Kingston",
+    "province": "ON",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Severe Thunderstorm Warning",
+    "mandatory_actions": [
+      "Move vehicles into a garage, carport, or protective shelter to avoid hail damage from nickel-sized hail",
+      "Secure or store patio furniture, garbage bins, and loose outdoor items to prevent projectile damage in 90 km/h wind gusts",
+      "Close and latch all windows, exterior doors, and storm shutters tightly to prevent water infiltration and wind pressurization"
+    ]
+  },
+  "HOM-1007": {
+    "property_id": "HOM-1007",
+    "city": "Kingston",
+    "province": "ON",
+    "dwelling_type": "townhouse",
+    "triggering_event": "Severe Thunderstorm Warning",
+    "mandatory_actions": [
+      "Move vehicles into a garage, carport, or protective shelter to avoid hail damage from nickel-sized hail",
+      "Secure or store patio furniture, garbage bins, and loose outdoor items to prevent projectile damage in 90 km/h wind gusts",
+      "Close and latch all windows, exterior doors, and storm shutters tightly to prevent water infiltration and wind pressurization"
+    ]
+  },
+  "HOM-1008": {
+    "property_id": "HOM-1008",
+    "city": "Kingston",
+    "province": "ON",
+    "dwelling_type": "highrise_condo",
+    "triggering_event": "Severe Thunderstorm Warning",
+    "mandatory_actions": [
+      "Clear balcony of all loose furniture, planters, and lightweight items to prevent windborne hazards in 90 km/h gusts",
+      "Close and tightly latch all balcony doors and windows to prevent water ingress and wind pressurization during the severe storm"
+    ]
+  },
+  "HOM-1009": {
+    "property_id": "HOM-1009",
+    "city": "Kingston",
+    "province": "ON",
+    "dwelling_type": "detached",
+    "triggering_event": "Severe Thunderstorm Warning",
+    "mandatory_actions": [
+      "Move vehicles into a garage, carport, or protective shelter to avoid hail damage from nickel-sized hail",
+      "Secure or store patio furniture, garbage bins, and loose outdoor items to prevent projectile damage in 90 km/h wind gusts",
+      "Close and latch all windows, exterior doors, and storm shutters tightly to prevent water infiltration and wind pressurization"
+    ]
+  },
+  "HOM-1010": {
+    "property_id": "HOM-1010",
+    "city": "Kingston",
+    "province": "ON",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Severe Thunderstorm Warning",
+    "mandatory_actions": [
+      "Move vehicles into a garage, carport, or protective shelter to avoid hail damage from nickel-sized hail",
+      "Secure or store patio furniture, garbage bins, and loose outdoor items to prevent projectile damage in 90 km/h wind gusts",
+      "Close and latch all windows, exterior doors, and storm shutters tightly to prevent water infiltration and wind pressurization"
+    ]
+  },
+  "HOM-1011": {
+    "property_id": "HOM-1011",
+    "city": "Ottawa",
+    "province": "ON",
+    "dwelling_type": "detached",
+    "triggering_event": "Tornado Warning",
+    "mandatory_actions": [
+      "Seek immediate shelter on the lowest interior level of the home (basement, interior closet, or bathroom) with as many walls between you and the exterior as possible",
+      "Stay far away from all windows, skylights, exterior glass, and outside walls during the active tornado warning"
+    ]
+  },
+  "HOM-1012": {
+    "property_id": "HOM-1012",
+    "city": "Ottawa",
+    "province": "ON",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Tornado Warning",
+    "mandatory_actions": [
+      "Seek immediate shelter on the lowest interior level of the home (basement, interior closet, or bathroom) with as many walls between you and the exterior as possible",
+      "Stay far away from all windows, skylights, exterior glass, and outside walls during the active tornado warning"
+    ]
+  },
+  "HOM-1013": {
+    "property_id": "HOM-1013",
+    "city": "Ottawa",
+    "province": "ON",
+    "dwelling_type": "townhouse",
+    "triggering_event": "Tornado Warning",
+    "mandatory_actions": [
+      "Seek immediate shelter on the lowest interior level of the home (basement, interior closet, or bathroom) with as many walls between you and the exterior as possible",
+      "Stay far away from all windows, skylights, exterior glass, and outside walls during the active tornado warning"
+    ]
+  },
+  "HOM-1014": {
+    "property_id": "HOM-1014",
+    "city": "Ottawa",
+    "province": "ON",
+    "dwelling_type": "highrise_condo",
+    "triggering_event": "Tornado Warning",
+    "mandatory_actions": [
+      "Move immediately to an interior hallway, central stairwell, or the lowest accessible common floor away from external walls and glass",
+      "Stay far away from exterior windows, corner rooms, balcony doors, and do not use elevators during the active tornado threat"
+    ]
+  },
+  "HOM-1015": {
+    "property_id": "HOM-1015",
+    "city": "Ottawa",
+    "province": "ON",
+    "dwelling_type": "detached",
+    "triggering_event": "Tornado Warning",
+    "mandatory_actions": [
+      "Seek immediate shelter on the lowest interior level of the home (basement, interior closet, or bathroom) with as many walls between you and the exterior as possible",
+      "Stay far away from all windows, skylights, exterior glass, and outside walls during the active tornado warning"
+    ]
+  },
+  "HOM-1016": {
+    "property_id": "HOM-1016",
+    "city": "Ottawa",
+    "province": "ON",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Tornado Warning",
+    "mandatory_actions": [
+      "Seek immediate shelter on the lowest interior level of the home (basement, interior closet, or bathroom) with as many walls between you and the exterior as possible",
+      "Stay far away from all windows, skylights, exterior glass, and outside walls during the active tornado warning"
+    ]
+  },
+  "HOM-1017": {
+    "property_id": "HOM-1017",
+    "city": "Ottawa",
+    "province": "ON",
+    "dwelling_type": "townhouse",
+    "triggering_event": "Tornado Warning",
+    "mandatory_actions": [
+      "Seek immediate shelter on the lowest interior level of the home (basement, interior closet, or bathroom) with as many walls between you and the exterior as possible",
+      "Stay far away from all windows, skylights, exterior glass, and outside walls during the active tornado warning"
+    ]
+  },
+  "HOM-1018": {
+    "property_id": "HOM-1018",
+    "city": "Ottawa",
+    "province": "ON",
+    "dwelling_type": "highrise_condo",
+    "triggering_event": "Tornado Warning",
+    "mandatory_actions": [
+      "Move immediately to an interior hallway, central stairwell, or the lowest accessible common floor away from external walls and glass",
+      "Stay far away from exterior windows, corner rooms, balcony doors, and do not use elevators during the active tornado threat"
+    ]
+  },
+  "HOM-1019": {
+    "property_id": "HOM-1019",
+    "city": "Ottawa",
+    "province": "ON",
+    "dwelling_type": "detached",
+    "triggering_event": "Tornado Warning",
+    "mandatory_actions": [
+      "Seek immediate shelter on the lowest interior level of the home (basement, interior closet, or bathroom) with as many walls between you and the exterior as possible",
+      "Stay far away from all windows, skylights, exterior glass, and outside walls during the active tornado warning"
+    ]
+  },
+  "HOM-1020": {
+    "property_id": "HOM-1020",
+    "city": "Ottawa",
+    "province": "ON",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Tornado Warning",
+    "mandatory_actions": [
+      "Seek immediate shelter on the lowest interior level of the home (basement, interior closet, or bathroom) with as many walls between you and the exterior as possible",
+      "Stay far away from all windows, skylights, exterior glass, and outside walls during the active tornado warning"
+    ]
+  },
+  "HOM-1021": {
+    "property_id": "HOM-1021",
+    "city": "Toronto",
+    "province": "ON",
+    "dwelling_type": "detached",
+    "triggering_event": "Rainfall Warning",
+    "mandatory_actions": [
+      "Elevate or move valuable belongings, electronics, and furnishings from the basement or crawlspace floor to higher ground to protect against sewer backup and water seepage",
+      "Monitor interior basement walls, window wells, and entryways for water ingress, and verify that the sump pump and backwater valve are actively functioning",
+      "Close, tightly latch, and seal all exterior windows and doors to prevent water penetration and structural damage from 90 km/h wind-driven rain"
+    ]
+  },
+  "HOM-1022": {
+    "property_id": "HOM-1022",
+    "city": "Toronto",
+    "province": "ON",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Rainfall Warning",
+    "mandatory_actions": [
+      "Elevate or move valuable belongings, electronics, and furnishings from the basement or crawlspace floor to higher ground to protect against sewer backup and water seepage",
+      "Monitor interior basement walls, window wells, and entryways for water ingress, and verify that the sump pump and backwater valve are actively functioning",
+      "Close, tightly latch, and seal all exterior windows and doors to prevent water penetration and structural damage from 90 km/h wind-driven rain"
+    ]
+  },
+  "HOM-1023": {
+    "property_id": "HOM-1023",
+    "city": "Toronto",
+    "province": "ON",
+    "dwelling_type": "townhouse",
+    "triggering_event": "Rainfall Warning",
+    "mandatory_actions": [
+      "Elevate or move valuable belongings, electronics, and furnishings from the basement or crawlspace floor to higher ground to protect against sewer backup and water seepage",
+      "Monitor interior basement walls, window wells, and entryways for water ingress, and verify that the sump pump and backwater valve are actively functioning",
+      "Close, tightly latch, and seal all exterior windows and doors to prevent water penetration and structural damage from 90 km/h wind-driven rain"
+    ]
+  },
+  "HOM-1024": {
+    "property_id": "HOM-1024",
+    "city": "Toronto",
+    "province": "ON",
+    "dwelling_type": "highrise_condo",
+    "triggering_event": "Rainfall Warning",
+    "mandatory_actions": [
+      "Close, latch, and lock all balcony doors and windows tightly against 90 km/h wind-driven rain infiltration",
+      "Monitor interior window perimeters, balcony thresholds, and exterior walls for water seepage, keeping towels or barriers ready",
+      "Ensure balcony drainage at floor level is unobstructed to prevent torrential rainwater from pooling and overflowing into the living area"
+    ]
+  },
+  "HOM-1025": {
+    "property_id": "HOM-1025",
+    "city": "Toronto",
+    "province": "ON",
+    "dwelling_type": "detached",
+    "triggering_event": "Rainfall Warning",
+    "mandatory_actions": [
+      "Elevate or move valuable belongings, electronics, and furnishings from the basement or crawlspace floor to higher ground to protect against sewer backup and water seepage",
+      "Monitor interior basement walls, window wells, and entryways for water ingress, and verify that the sump pump and backwater valve are actively functioning",
+      "Close, tightly latch, and seal all exterior windows and doors to prevent water penetration and structural damage from 90 km/h wind-driven rain"
+    ]
+  },
+  "HOM-1026": {
+    "property_id": "HOM-1026",
+    "city": "Toronto",
+    "province": "ON",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Rainfall Warning",
+    "mandatory_actions": [
+      "Elevate or move valuable belongings, electronics, and furnishings from the basement or crawlspace floor to higher ground to protect against sewer backup and water seepage",
+      "Monitor interior basement walls, window wells, and entryways for water ingress, and verify that the sump pump and backwater valve are actively functioning",
+      "Close, tightly latch, and seal all exterior windows and doors to prevent water penetration and structural damage from 90 km/h wind-driven rain"
+    ]
+  },
+  "HOM-1027": {
+    "property_id": "HOM-1027",
+    "city": "Toronto",
+    "province": "ON",
+    "dwelling_type": "townhouse",
+    "triggering_event": "Rainfall Warning",
+    "mandatory_actions": [
+      "Elevate or move valuable belongings, electronics, and furnishings from the basement or crawlspace floor to higher ground to protect against sewer backup and water seepage",
+      "Monitor interior basement walls, window wells, and entryways for water ingress, and verify that the sump pump and backwater valve are actively functioning",
+      "Close, tightly latch, and seal all exterior windows and doors to prevent water penetration and structural damage from 90 km/h wind-driven rain"
+    ]
+  },
+  "HOM-1028": {
+    "property_id": "HOM-1028",
+    "city": "Toronto",
+    "province": "ON",
+    "dwelling_type": "highrise_condo",
+    "triggering_event": "Rainfall Warning",
+    "mandatory_actions": [
+      "Close, latch, and lock all balcony doors and windows tightly against 90 km/h wind-driven rain infiltration",
+      "Monitor interior window perimeters, balcony thresholds, and exterior walls for water seepage, keeping towels or barriers ready",
+      "Ensure balcony drainage at floor level is unobstructed to prevent torrential rainwater from pooling and overflowing into the living area"
+    ]
+  },
+  "HOM-1029": {
+    "property_id": "HOM-1029",
+    "city": "Toronto",
+    "province": "ON",
+    "dwelling_type": "detached",
+    "triggering_event": "Rainfall Warning",
+    "mandatory_actions": [
+      "Elevate or move valuable belongings, electronics, and furnishings from the basement or crawlspace floor to higher ground to protect against sewer backup and water seepage",
+      "Monitor interior basement walls, window wells, and entryways for water ingress, and verify that the sump pump and backwater valve are actively functioning",
+      "Close, tightly latch, and seal all exterior windows and doors to prevent water penetration and structural damage from 90 km/h wind-driven rain"
+    ]
+  },
+  "HOM-1030": {
+    "property_id": "HOM-1030",
+    "city": "Toronto",
+    "province": "ON",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Rainfall Warning",
+    "mandatory_actions": [
+      "Elevate or move valuable belongings, electronics, and furnishings from the basement or crawlspace floor to higher ground to protect against sewer backup and water seepage",
+      "Monitor interior basement walls, window wells, and entryways for water ingress, and verify that the sump pump and backwater valve are actively functioning",
+      "Close, tightly latch, and seal all exterior windows and doors to prevent water penetration and structural damage from 90 km/h wind-driven rain"
+    ]
+  },
+  "HOM-1031": {
+    "property_id": "HOM-1031",
+    "city": "Calgary",
+    "province": "AB",
+    "dwelling_type": "detached",
+    "triggering_event": "Snowfall Warning",
+    "mandatory_actions": [
+      "Clear heavy snow accumulation away from basement window wells, exterior entryways, and foundation perimeters to prevent meltwater seepage into the home",
+      "Regularly monitor interior ceilings, rooflines, and upper-floor walls for signs of ice damming, heavy snow load strain, or moisture leaks",
+      "Ensure ground-level downspouts and perimeter drainage routes are clear of snow and ice blockage to direct meltwater away from the foundation"
+    ]
+  },
+  "HOM-1032": {
+    "property_id": "HOM-1032",
+    "city": "Calgary",
+    "province": "AB",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Snowfall Warning",
+    "mandatory_actions": [
+      "Clear heavy snow accumulation away from basement window wells, exterior entryways, and foundation perimeters to prevent meltwater seepage into the home",
+      "Regularly monitor interior ceilings, rooflines, and upper-floor walls for signs of ice damming, heavy snow load strain, or moisture leaks",
+      "Ensure ground-level downspouts and perimeter drainage routes are clear of snow and ice blockage to direct meltwater away from the foundation"
+    ]
+  },
+  "HOM-1033": {
+    "property_id": "HOM-1033",
+    "city": "Calgary",
+    "province": "AB",
+    "dwelling_type": "townhouse",
+    "triggering_event": "Snowfall Warning",
+    "mandatory_actions": [
+      "Clear heavy snow accumulation away from basement window wells, exterior entryways, and foundation perimeters to prevent meltwater seepage into the home",
+      "Regularly monitor interior ceilings, rooflines, and upper-floor walls for signs of ice damming, heavy snow load strain, or moisture leaks",
+      "Ensure ground-level downspouts and perimeter drainage routes are clear of snow and ice blockage to direct meltwater away from the foundation"
+    ]
+  },
+  "HOM-1034": {
+    "property_id": "HOM-1034",
+    "city": "Calgary",
+    "province": "AB",
+    "dwelling_type": "highrise_condo",
+    "triggering_event": "Snowfall Warning",
+    "mandatory_actions": [
+      "Clear heavy wet snow accumulation from private balconies and sliding door thresholds to reduce structural load and prevent meltwater seepage into the living unit",
+      "Monitor interior window frames, doors, and exterior walls for signs of moisture seepage or water leaks as snow melts",
+      "Ensure balcony drains and scuppers remain clear of snow and ice to allow proper drainage of meltwater"
+    ]
+  },
+  "HOM-1035": {
+    "property_id": "HOM-1035",
+    "city": "Calgary",
+    "province": "AB",
+    "dwelling_type": "detached",
+    "triggering_event": "Snowfall Warning",
+    "mandatory_actions": [
+      "Clear heavy snow accumulation away from basement window wells, exterior entryways, and foundation perimeters to prevent meltwater seepage into the home",
+      "Regularly monitor interior ceilings, rooflines, and upper-floor walls for signs of ice damming, heavy snow load strain, or moisture leaks",
+      "Ensure ground-level downspouts and perimeter drainage routes are clear of snow and ice blockage to direct meltwater away from the foundation"
+    ]
+  },
+  "HOM-1036": {
+    "property_id": "HOM-1036",
+    "city": "Calgary",
+    "province": "AB",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Snowfall Warning",
+    "mandatory_actions": [
+      "Clear heavy snow accumulation away from basement window wells, exterior entryways, and foundation perimeters to prevent meltwater seepage into the home",
+      "Regularly monitor interior ceilings, rooflines, and upper-floor walls for signs of ice damming, heavy snow load strain, or moisture leaks",
+      "Ensure ground-level downspouts and perimeter drainage routes are clear of snow and ice blockage to direct meltwater away from the foundation"
+    ]
+  },
+  "HOM-1037": {
+    "property_id": "HOM-1037",
+    "city": "Calgary",
+    "province": "AB",
+    "dwelling_type": "townhouse",
+    "triggering_event": "Snowfall Warning",
+    "mandatory_actions": [
+      "Clear heavy snow accumulation away from basement window wells, exterior entryways, and foundation perimeters to prevent meltwater seepage into the home",
+      "Regularly monitor interior ceilings, rooflines, and upper-floor walls for signs of ice damming, heavy snow load strain, or moisture leaks",
+      "Ensure ground-level downspouts and perimeter drainage routes are clear of snow and ice blockage to direct meltwater away from the foundation"
+    ]
+  },
+  "HOM-1038": {
+    "property_id": "HOM-1038",
+    "city": "Calgary",
+    "province": "AB",
+    "dwelling_type": "highrise_condo",
+    "triggering_event": "Snowfall Warning",
+    "mandatory_actions": [
+      "Clear heavy wet snow accumulation from private balconies and sliding door thresholds to reduce structural load and prevent meltwater seepage into the living unit",
+      "Monitor interior window frames, doors, and exterior walls for signs of moisture seepage or water leaks as snow melts",
+      "Ensure balcony drains and scuppers remain clear of snow and ice to allow proper drainage of meltwater"
+    ]
+  },
+  "HOM-1039": {
+    "property_id": "HOM-1039",
+    "city": "Calgary",
+    "province": "AB",
+    "dwelling_type": "detached",
+    "triggering_event": "Snowfall Warning",
+    "mandatory_actions": [
+      "Clear heavy snow accumulation away from basement window wells, exterior entryways, and foundation perimeters to prevent meltwater seepage into the home",
+      "Regularly monitor interior ceilings, rooflines, and upper-floor walls for signs of ice damming, heavy snow load strain, or moisture leaks",
+      "Ensure ground-level downspouts and perimeter drainage routes are clear of snow and ice blockage to direct meltwater away from the foundation"
+    ]
+  },
+  "HOM-1040": {
+    "property_id": "HOM-1040",
+    "city": "Calgary",
+    "province": "AB",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Snowfall Warning",
+    "mandatory_actions": [
+      "Clear heavy snow accumulation away from basement window wells, exterior entryways, and foundation perimeters to prevent meltwater seepage into the home",
+      "Regularly monitor interior ceilings, rooflines, and upper-floor walls for signs of ice damming, heavy snow load strain, or moisture leaks",
+      "Ensure ground-level downspouts and perimeter drainage routes are clear of snow and ice blockage to direct meltwater away from the foundation"
+    ]
+  },
+  "HOM-1041": {
+    "property_id": "HOM-1041",
+    "city": "Edmonton",
+    "province": "AB",
+    "dwelling_type": "detached",
+    "triggering_event": "Flash Flood Warning",
+    "mandatory_actions": [
+      "Elevate or relocate valuable belongings, electronics, and storage in the basement/crawlspace off the floor to prevent water seepage damage",
+      "Monitor interior basement walls, window wells, and sump pump operation to detect and respond to rapid water infiltration",
+      "Ensure ground-level doors and window wells are securely closed against overland runoff"
+    ]
+  },
+  "HOM-1042": {
+    "property_id": "HOM-1042",
+    "city": "Edmonton",
+    "province": "AB",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Flash Flood Warning",
+    "mandatory_actions": [
+      "Elevate or relocate valuable belongings, electronics, and storage in the basement/crawlspace off the floor to prevent water seepage damage",
+      "Monitor interior basement walls, window wells, and sump pump operation to detect and respond to rapid water infiltration",
+      "Ensure ground-level doors and window wells are securely closed against overland runoff"
+    ]
+  },
+  "HOM-1043": {
+    "property_id": "HOM-1043",
+    "city": "Edmonton",
+    "province": "AB",
+    "dwelling_type": "townhouse",
+    "triggering_event": "Flash Flood Warning",
+    "mandatory_actions": [
+      "Elevate or relocate valuable belongings, electronics, and storage in the basement/crawlspace off the floor to prevent water seepage damage",
+      "Monitor interior basement walls, window wells, and sump pump operation to detect and respond to rapid water infiltration",
+      "Ensure ground-level doors and window wells are securely closed against overland runoff"
+    ]
+  },
+  "HOM-1044": {
+    "property_id": "HOM-1044",
+    "city": "Edmonton",
+    "province": "AB",
+    "dwelling_type": "highrise_condo",
+    "triggering_event": "Flash Flood Warning",
+    "mandatory_actions": [
+      "Check balcony floor drainage to ensure torrential rainwater drains freely and does not pool toward the interior living area",
+      "Securely shut and latch all windows and balcony sliding doors against driving rainfall"
+    ]
+  },
+  "HOM-1045": {
+    "property_id": "HOM-1045",
+    "city": "Edmonton",
+    "province": "AB",
+    "dwelling_type": "detached",
+    "triggering_event": "Flash Flood Warning",
+    "mandatory_actions": [
+      "Elevate or relocate valuable belongings, electronics, and storage in the basement/crawlspace off the floor to prevent water seepage damage",
+      "Monitor interior basement walls, window wells, and sump pump operation to detect and respond to rapid water infiltration",
+      "Ensure ground-level doors and window wells are securely closed against overland runoff"
+    ]
+  },
+  "HOM-1046": {
+    "property_id": "HOM-1046",
+    "city": "Edmonton",
+    "province": "AB",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Flash Flood Warning",
+    "mandatory_actions": [
+      "Elevate or relocate valuable belongings, electronics, and storage in the basement/crawlspace off the floor to prevent water seepage damage",
+      "Monitor interior basement walls, window wells, and sump pump operation to detect and respond to rapid water infiltration",
+      "Ensure ground-level doors and window wells are securely closed against overland runoff"
+    ]
+  },
+  "HOM-1047": {
+    "property_id": "HOM-1047",
+    "city": "Edmonton",
+    "province": "AB",
+    "dwelling_type": "townhouse",
+    "triggering_event": "Flash Flood Warning",
+    "mandatory_actions": [
+      "Elevate or relocate valuable belongings, electronics, and storage in the basement/crawlspace off the floor to prevent water seepage damage",
+      "Monitor interior basement walls, window wells, and sump pump operation to detect and respond to rapid water infiltration",
+      "Ensure ground-level doors and window wells are securely closed against overland runoff"
+    ]
+  },
+  "HOM-1048": {
+    "property_id": "HOM-1048",
+    "city": "Edmonton",
+    "province": "AB",
+    "dwelling_type": "highrise_condo",
+    "triggering_event": "Flash Flood Warning",
+    "mandatory_actions": [
+      "Check balcony floor drainage to ensure torrential rainwater drains freely and does not pool toward the interior living area",
+      "Securely shut and latch all windows and balcony sliding doors against driving rainfall"
+    ]
+  },
+  "HOM-1049": {
+    "property_id": "HOM-1049",
+    "city": "Edmonton",
+    "province": "AB",
+    "dwelling_type": "detached",
+    "triggering_event": "Flash Flood Warning",
+    "mandatory_actions": [
+      "Elevate or relocate valuable belongings, electronics, and storage in the basement/crawlspace off the floor to prevent water seepage damage",
+      "Monitor interior basement walls, window wells, and sump pump operation to detect and respond to rapid water infiltration",
+      "Ensure ground-level doors and window wells are securely closed against overland runoff"
+    ]
+  },
+  "HOM-1050": {
+    "property_id": "HOM-1050",
+    "city": "Edmonton",
+    "province": "AB",
+    "dwelling_type": "semi_detached",
+    "triggering_event": "Flash Flood Warning",
+    "mandatory_actions": [
+      "Elevate or relocate valuable belongings, electronics, and storage in the basement/crawlspace off the floor to prevent water seepage damage",
+      "Monitor interior basement walls, window wells, and sump pump operation to detect and respond to rapid water infiltration",
+      "Ensure ground-level doors and window wells are securely closed against overland runoff"
+    ]
+  },
+  "HOM-1051": {
+    "property_id": "HOM-1051",
+    "city": "Wood Buffalo Nat. Park near Peace Point and Lake Claire",
+    "province": "AB",
+    "dwelling_type": "detached",
+    "triggering_event": "Rainfall Warning",
+    "mandatory_actions": [
+      "Elevate or remove ground-level belongings and valuables in the crawlspace to protect against water pooling and seepage",
+      "Ensure ground-level downspout extensions and surface runoff paths direct water safely away from the cabin foundation"
+    ]
+  },
+  "HOM-1052": {
+    "property_id": "HOM-1052",
+    "city": "Uranium City",
+    "province": "SK",
+    "dwelling_type": "detached",
+    "triggering_event": "Blizzard Warning",
+    "mandatory_actions": [
+      "Secure or bring indoors all loose exterior items and yard equipment to prevent windborne projectile damage in 95 km/h gusts",
+      "Maintain steady indoor heating and protect exposed plumbing pipes to prevent freeze-up during extreme -38 wind chills"
+    ]
+  }
+}

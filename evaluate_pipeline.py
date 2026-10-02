@@ -3,7 +3,8 @@
 Evaluates:
   1. Faithfulness & Anti-Hallucination (1-5)
   2. Action Relevance & Property Tailoring (1-5)
-  3. Communication Clarity & Actionability (1-5)
+  3. Action Correctness & Semantic Coverage (1-5)
+  4. Communication Clarity & Actionability (1-5)
 
 Uses:
   - Agent under test: Google Gemini (unaltered in property_investigator)
@@ -108,6 +109,7 @@ def get_matching_alert_for_property(property_context: Dict[str, Any], alerts: Li
 
 
 DEFAULT_ADVISORIES_FILE = ROOT_DIR / "output" / "advisories.json"
+DEFAULT_GOLDEN_DATASET_FILE = ROOT_DIR / "evaluation" / "golden_dataset.json"
 
 
 def evaluate_benchmark_properties(
@@ -153,6 +155,18 @@ def evaluate_benchmark_properties(
         console.print(f"[bold red]Error reading advisories file '{advisory_filepath}': {e}[/bold red]")
         return []
 
+    # 3. Load Golden Dataset for Action Correctness Benchmark
+    golden_dataset = {}
+    if DEFAULT_GOLDEN_DATASET_FILE.exists():
+        try:
+            with open(DEFAULT_GOLDEN_DATASET_FILE, "r", encoding="utf-8") as f:
+                golden_dataset = json.load(f)
+            console.print(f"[dim]Loaded golden benchmark dataset with [bold white]{len(golden_dataset)}[/bold white] property references.[/dim]\n")
+        except Exception as e:
+            console.print(f"[yellow]Warning: Could not read golden dataset '{DEFAULT_GOLDEN_DATASET_FILE}': {e}[/yellow]")
+    else:
+        console.print(f"[yellow]Warning: Golden dataset not found at '{DEFAULT_GOLDEN_DATASET_FILE}'.[/yellow]")
+
     # Determine target property IDs (default: evaluate all properties in advisories.json)
     if property_ids:
         target_ids = property_ids
@@ -166,8 +180,9 @@ def evaluate_benchmark_properties(
     console.print(
         Panel.fit(
             "[bold cyan]AUTONOMOUS AGENT EVALUATION PIPELINE[/bold cyan]\n"
-            "[italic]LLM-as-a-Judge (OpenAI) assessing Faithfulness, Action Relevance & Clarity[/italic]\n\n"
+            "[italic]LLM-as-a-Judge (OpenAI) assessing Faithfulness, Action Relevance, Action Correctness & Clarity[/italic]\n\n"
             f"• [bold green]Consolidated Advisories File:[/bold green] [cyan]{advisory_filepath}[/cyan]\n"
+            f"• [bold green]Golden Benchmark Dataset:[/bold green] [cyan]{DEFAULT_GOLDEN_DATASET_FILE}[/cyan]\n"
             f"• [bold magenta]Judge Model:[/bold magenta] OpenAI ({judge_model})\n"
             f"• [bold yellow]Benchmark Targets:[/bold yellow] {len(target_ids)} Residential Properties ({', '.join(target_ids)})\n"
             f"• [bold blue]Weather Alert Source:[/bold blue] [bold {'cyan' if use_simulated_alerts else 'magenta'}]{alert_source_label}[/bold {'cyan' if use_simulated_alerts else 'magenta'}]\n"
@@ -178,7 +193,7 @@ def evaluate_benchmark_properties(
         )
     )
 
-    # 3. Configure Weather Alert Source for Independent Querying (Simulated vs Live MCP)
+    # 4. Configure Weather Alert Source for Independent Querying (Simulated vs Live MCP)
     if use_simulated_alerts:
         simulated_alerts = get_simulated_alerts()
         default_mcp_client.set_simulated_alerts(simulated_alerts)
@@ -189,7 +204,7 @@ def evaluate_benchmark_properties(
     judge = LLMJudge(model=judge_model)
     evaluation_results: List[Dict[str, Any]] = []
 
-    # 4. Iterate through each property
+    # 5. Iterate through each property
     for idx, prop_id in enumerate(target_ids, 1):
         console.rule(f"[bold yellow]Benchmark {idx}/{len(target_ids)}: Judging Property '{prop_id}'[/bold yellow]")
 
@@ -234,16 +249,26 @@ def evaluate_benchmark_properties(
             continue
         console.print(f"  [dim]✔ Extracted advisory for {prop_id} from consolidated JSON[/dim]")
 
-        # 4. Run 3-Prompt LLM Judge
-        console.print(f"[dim]-> Running 3-Prompt LLM Judge ({judge_model})...[/dim]")
+        # 4. Retrieve golden reference mandatory actions
+        gold_entry = golden_dataset.get(prop_id, {})
+        mandatory_actions = gold_entry.get("mandatory_actions", [])
+
+        # 5. Run 4-Prompt LLM Judge
+        console.print(f"[dim]-> Running 4-Prompt LLM Judge ({judge_model})...[/dim]")
         judgment: EvaluationJudgment = judge.evaluate(
             property_context=prop_gt,
             alert_context=alert_gt,
             agent_advisory=advisory,
+            mandatory_actions=mandatory_actions,
         )
 
         # Print Judgment Summary Card
-        composite = (judgment.faithfulness_score + judgment.action_relevance_score + judgment.clarity_score) / 3.0
+        composite = (
+            judgment.faithfulness_score
+            + judgment.action_relevance_score
+            + judgment.action_correctness_score
+            + judgment.clarity_score
+        ) / 4.0
 
         card_text = (
             f"[bold cyan]Property:[/bold cyan] {prop_id} ({prop_gt.get('city')})\n"
@@ -252,6 +277,8 @@ def evaluate_benchmark_properties(
             f"    [italic dim]{judgment.faithfulness_justification}[/italic dim]\n\n"
             f"  • [bold green]Action Relevance Score:[/bold green] [bold white]{judgment.action_relevance_score} / 5[/bold white]\n"
             f"    [italic dim]{judgment.action_relevance_justification}[/italic dim]\n\n"
+            f"  • [bold green]Action Correctness Score:[/bold green] [bold white]{judgment.action_correctness_score} / 5[/bold white]\n"
+            f"    [italic dim]{judgment.action_correctness_justification}[/italic dim]\n\n"
             f"  • [bold green]Clarity Score:[/bold green] [bold white]{judgment.clarity_score} / 5[/bold white]\n"
             f"    [italic dim]{judgment.clarity_justification}[/italic dim]\n\n"
             f"[bold yellow]Composite Quality Score:[/bold yellow] [bold magenta]{composite:.2f} / 5.0[/bold magenta]"
@@ -263,6 +290,7 @@ def evaluate_benchmark_properties(
             "property_id": prop_id,
             "property_context": prop_gt,
             "alert_context": alert_gt,
+            "mandatory_actions": mandatory_actions,
             "agent_advisory": advisory,
             "judgment": judgment,
         })
@@ -280,12 +308,13 @@ def evaluate_benchmark_properties(
     summary_table.add_column("City / Peril", style="cyan")
     summary_table.add_column("Faithfulness", justify="center", style="bold green")
     summary_table.add_column("Action Relevance", justify="center", style="bold green")
+    summary_table.add_column("Action Correctness", justify="center", style="bold green")
     summary_table.add_column("Clarity", justify="center", style="bold green")
     summary_table.add_column("Composite", justify="center", style="bold magenta")
 
     for r in evaluation_results:
         j = r["judgment"]
-        comp = (j.faithfulness_score + j.action_relevance_score + j.clarity_score) / 3.0
+        comp = (j.faithfulness_score + j.action_relevance_score + j.action_correctness_score + j.clarity_score) / 4.0
         city = r["property_context"].get("city", "")
         peril = r["alert_context"].get("alert_short_name", "Alert")
         summary_table.add_row(
@@ -293,6 +322,7 @@ def evaluate_benchmark_properties(
             f"{city} ({peril})",
             f"{j.faithfulness_score}/5",
             f"{j.action_relevance_score}/5",
+            f"{j.action_correctness_score}/5",
             f"{j.clarity_score}/5",
             f"{comp:.2f}/5.0",
         )
@@ -300,8 +330,9 @@ def evaluate_benchmark_properties(
     # Averages
     avg_f = sum(r["judgment"].faithfulness_score for r in evaluation_results) / len(evaluation_results)
     avg_r = sum(r["judgment"].action_relevance_score for r in evaluation_results) / len(evaluation_results)
+    avg_ac = sum(r["judgment"].action_correctness_score for r in evaluation_results) / len(evaluation_results)
     avg_c = sum(r["judgment"].clarity_score for r in evaluation_results) / len(evaluation_results)
-    avg_total = (avg_f + avg_r + avg_c) / 3.0
+    avg_total = (avg_f + avg_r + avg_ac + avg_c) / 4.0
 
     summary_table.add_section()
     summary_table.add_row(
@@ -309,6 +340,7 @@ def evaluate_benchmark_properties(
         f"[bold yellow]{len(evaluation_results)} Properties[/bold yellow]",
         f"[bold yellow]{avg_f:.2f}/5[/bold yellow]",
         f"[bold yellow]{avg_r:.2f}/5[/bold yellow]",
+        f"[bold yellow]{avg_ac:.2f}/5[/bold yellow]",
         f"[bold yellow]{avg_c:.2f}/5[/bold yellow]",
         f"[bold yellow]{avg_total:.2f}/5.0[/bold yellow]",
     )
@@ -322,14 +354,15 @@ def evaluate_benchmark_properties(
             f"[bold green]✔ Evaluation Results Successfully Saved to Excel![/bold green]\n\n"
             f"File Path: [bold white]{excel_path}[/bold white]\n"
             f"Tabs Included:\n"
-            f"  1. [bold cyan]Evaluation[/bold cyan]: Integrated side-by-side table combining Target, Ground Truth, Agent Outputs, and LLM Judge Scores/Justifications with color-coded category headers.\n"
-            f"  2. [bold cyan]Rubrics[/bold cyan]: Complete 1-to-5 scoring criteria and guidelines for Faithfulness, Action Relevance, and Clarity.",
+            f"  1. [bold cyan]Evaluation[/bold cyan]: Integrated side-by-side table combining Target, Ground Truth (including Golden Mandatory Actions), Agent Outputs, and LLM Judge Scores/Justifications across all 4 metrics.\n"
+            f"  2. [bold cyan]Rubrics[/bold cyan]: Complete 1-to-5 scoring criteria and guidelines for Faithfulness, Action Relevance, Action Correctness, and Clarity.",
             border_style="green",
             box=box.ROUNDED,
         )
     )
 
     return evaluation_results
+
 
 
 def main():

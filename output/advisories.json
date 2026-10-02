@@ -19,43 +19,2359 @@
     },
     "exposure_analysis": {
       "vulnerabilities": [
-        "Crawlspace",
-        "No sump pump",
-        "No backwater valve"
+        "Crawlspace basement",
+        "NO Sump Pump",
+        "NO Backwater Valve"
       ],
       "coverage_gaps": [
-        "Uninsured sewer backup",
-        "Uninsured overland water"
+        "Sewer Backup Endorsement: UNINSURED",
+        "Overland Water Endorsement: UNINSURED"
       ]
     },
     "micro_actions": [
       {
         "priority": 1,
         "category": "INDOOR_WATER_PROTECTION",
-        "action": "Clear eavestroughs and downspouts to ensure proper drainage away from the cabin.",
-        "rationale": "Heavy rainfall can overwhelm clogged drainage systems, leading to water pooling and potential ingress into the crawlspace, which is vulnerable due to the lack of a sump pump and backwater valve, and uninsured for water damage."
+        "action": "Clear eavestroughs and downspouts to ensure proper drainage away from the crawlspace foundation.",
+        "rationale": "Heavy rainfall (80 mm) can lead to water pooling and ingress into the crawlspace, which is uninsured for sewer backup and overland water."
       },
       {
         "priority": 2,
         "category": "INDOOR_WATER_PROTECTION",
-        "action": "Elevate any valuables or sensitive items in the crawlspace to protect them from potential water ingress.",
-        "rationale": "With a crawlspace and no sump pump or backwater valve, there is a high risk of water accumulation during heavy rainfall, which could damage items stored at ground level. Additionally, sewer backup and overland water are uninsured."
+        "action": "Move any valuable items currently stored in the crawlspace to higher ground or a secure, dry location.",
+        "rationale": "With no sump pump or backwater valve and uninsured water damage, items in the crawlspace are at high risk from 80 mm of rain."
       },
       {
         "priority": 3,
-        "category": "INDOOR_WATER_PROTECTION",
-        "action": "Monitor water levels around the property, especially near the crawlspace entrance, and be prepared to take further action if water starts to accumulate.",
-        "rationale": "Given the heavy rainfall warning and the property's vulnerabilities (crawlspace, no sump pump/backwater valve, uninsured water damage), continuous monitoring is crucial to detect and respond to water accumulation promptly."
+        "category": "LIFE_SAFETY",
+        "action": "Monitor local water levels, especially near rivers, creeks, and culverts, and be prepared for rapid runoff and localized washouts.",
+        "rationale": "Heavy rainfall can cause rapid river runoff and localized washouts, posing a risk to property and safety."
       }
     ],
     "safety_status": "VERIFIED_SAFE",
     "channels": {
-      "sms": "Urgent: Heavy rain expected. Clear eavestroughs & elevate crawlspace items. Monitor water levels. Stay safe! #HOM-1051",
+      "sms": "Urgent: Heavy rain (80mm) expected. Clear eavestroughs & move crawlspace valuables. Uninsured for water damage. Stay safe!",
       "push_notification": {
         "title": "Urgent: Storm Mitigation Required",
-        "body": "Heavy rain expected for HOM-1051. Clear eavestroughs, elevate crawlspace items, and monitor water levels to prevent damage. Your property is uninsured for sewer backup and overland water."
+        "body": "Heavy rain (80mm) expected. Clear eavestroughs & move crawlspace valuables. Uninsured for water damage. Monitor local water levels."
       }
     },
-    "dispatch_id": "DISP-93EE0B96"
+    "dispatch_id": "DISP-DBC821AE"
+  },
+  "HOM-1052": {
+    "property_id": "HOM-1052",
+    "policyholder_name": "Eileen Auger",
+    "contact": {
+      "phone": "+1-306-555-1052",
+      "email": "eileen.auger@example.ca"
+    },
+    "hazard_summary": {
+      "event": "blizzard warning in effect",
+      "wind_gust_kmh": 95,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": null,
+      "snowfall_cm": 45.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Aged asphalt shingle roof (24 years old) vulnerable to high winds and heavy snow loading",
+        "Crawlspace foundation susceptible to snow accumulation and potential utility line freeze-up"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement: NO - CRITICAL GAP: Surface overland flood runoff is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Clear snow from around the foundation and egress points to prevent accumulation and potential issues for the crawlspace.",
+        "rationale": "Heavy snowfall (45 cm) can accumulate around the crawlspace foundation and egress points, potentially leading to issues if not cleared."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Monitor for signs of ice damming and roof loading from inside the home or from a safe ground-level distance.",
+        "rationale": "The aged asphalt shingle roof (24 years old) is vulnerable to heavy snow accumulation (45 cm) and potential ice damming, which can cause structural stress and water ingress. Monitoring should be done safely without climbing or direct roof inspection due to high winds."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "Prepare for potential power outages and ensure alternative heating sources are available.",
+        "rationale": "Blizzard conditions with high winds and extreme cold increase the risk of power outages and frozen pipes."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Blizzard warning for HOM-1052. Clear snow from foundation. Monitor roof for ice/loading from inside. Prepare for power outages. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Blizzard warning for HOM-1052. Clear snow from foundation. Monitor roof for ice/loading from inside. Prepare for power outages. Stay safe!"
+      }
+    },
+    "dispatch_id": "DISP-DEEE1980"
+  },
+  "HOM-1001": {
+    "property_id": "HOM-1001",
+    "policyholder_name": "Liam Tremblay",
+    "contact": {
+      "phone": "+1-613-555-1001",
+      "email": "liam.tremblay1@example.ca"
+    },
+    "hazard_summary": {
+      "event": "severe thunderstorm warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": true,
+      "hail_diameter_cm": 2.1,
+      "hail_descriptor": "nickel-sized",
+      "rainfall_mm": 50.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Finished basement vulnerable to water damage from torrential downpours",
+        "Asphalt shingle roof (4 years old) vulnerable to 90 km/h wind gusts and nickel-sized hail"
+      ],
+      "coverage_gaps": [
+        "Basement sewer backup damage is UNINSURED",
+        "Surface overland flood runoff is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move vehicles to a covered garage or a less exposed area away from trees and potential falling debris to protect against hail and wind damage.",
+        "rationale": "90 km/h wind gusts and nickel-sized hail pose a significant risk of damage to vehicles."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure all downspouts are clear of debris and directed at least 6 feet away from the foundation to prevent water accumulation and potential basement flooding, especially given the uninsured overland water risk.",
+        "rationale": "Torrential downpours with localized amounts exceeding 50 mm can overwhelm drainage systems and lead to water ingress, which is not covered by your policy."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "Stay indoors and away from windows during the storm. Do not attempt to climb ladders, inspect shingles, or clean roof gutters due to high winds.",
+        "rationale": "High winds (90 km/h) make outdoor activities extremely dangerous and can lead to serious injury."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Severe storm with 90km/h winds & hail. Move vehicles to shelter. Ensure downspouts are clear. Stay indoors. Safety first!",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Severe thunderstorm with 90 km/h winds and nickel-sized hail. Move vehicles to shelter and ensure downspouts are clear. Stay indoors and prioritize safety."
+      }
+    },
+    "dispatch_id": "DISP-FA1F627D"
+  },
+  "HOM-1002": {
+    "property_id": "HOM-1002",
+    "policyholder_name": "Olivia Smith",
+    "contact": {
+      "phone": "+1-613-555-1002",
+      "email": "olivia.smith2@example.ca"
+    },
+    "hazard_summary": {
+      "event": "severe thunderstorm warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": true,
+      "hail_diameter_cm": 2.1,
+      "hail_descriptor": "nickel-sized",
+      "rainfall_mm": 50.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Unfinished basement",
+        "No sump pump",
+        "No backwater valve"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "LIFE_SAFETY",
+        "action": "Secure or bring indoors any loose outdoor items (patio furniture, garbage bins, toys) that could become projectiles.",
+        "rationale": "90 km/h wind gusts can turn unsecured outdoor items into dangerous projectiles, posing a risk to life and property. This action should be completed immediately if safe to do so."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Move valuable items from the unfinished basement floor to higher ground.",
+        "rationale": "With no sump pump or backwater valve, the unfinished basement is vulnerable to water ingress from heavy rain (50 mm), despite coverage. Elevating items reduces damage risk."
+      },
+      {
+        "priority": 3,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Park vehicles in a garage or the safest available location away from trees and structures.",
+        "rationale": "90 km/h wind gusts and nickel-sized hail pose a significant risk of damage to vehicles if left exposed. Seek immediate shelter for vehicles."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Severe thunderstorm with 90 km/h winds, hail, and 50mm rain. Secure outdoor items, move basement valuables, park vehicles safely. Do NOT climb ladders.",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Severe thunderstorm warning for your area. Secure outdoor items, move basement valuables, and park vehicles in a garage or away from trees. Do NOT climb ladders or inspect roof during storm."
+      }
+    },
+    "dispatch_id": "DISP-32DBE3F0"
+  },
+  "HOM-1003": {
+    "property_id": "HOM-1003",
+    "policyholder_name": "Noah Roy",
+    "contact": {
+      "phone": "+1-613-555-1003",
+      "email": "noah.roy3@example.ca"
+    },
+    "hazard_summary": {
+      "event": "severe thunderstorm warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": true,
+      "hail_diameter_cm": 2.1,
+      "hail_descriptor": "nickel-sized",
+      "rainfall_mm": 50.0,
+      "snowfall_cm": 0.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "12-year-old slate roof susceptible to high winds and hail",
+        "Crawlspace basement with no backwater valve"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "LIFE_SAFETY",
+        "action": "Secure or bring indoors any loose outdoor items such as patio furniture, garbage bins, and trampolines to prevent them from becoming projectiles in high winds.",
+        "rationale": "High wind gusts of 90 km/h can turn unsecured outdoor items into dangerous projectiles, causing property damage or injury."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Park all vehicles in a garage or under a covered area to protect them from potential damage by nickel-sized hail.",
+        "rationale": "Nickel-sized hail (2.1 cm) can cause significant dents and damage to vehicle exteriors."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Regularly check your crawlspace for any signs of water intrusion or dampness, especially during and after heavy rainfall, as your property lacks a backwater valve.",
+        "rationale": "Torrential downpours with localized amounts exceeding 50 mm can overwhelm drainage systems, and without a backwater valve, there's an increased risk of water entering the crawlspace despite having a sump pump."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Severe thunderstorm with 90 km/h winds & hail. Secure outdoor items & park vehicles indoors. Stay safe! #StormSafety",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Severe thunderstorm warning for your area. Secure outdoor items, park vehicles indoors, and monitor crawlspace for water. Winds up to 90 km/h, nickel-sized hail, and heavy rain expected."
+      }
+    },
+    "dispatch_id": "DISP-A5C2938E"
+  },
+  "HOM-1004": {
+    "property_id": "HOM-1004",
+    "policyholder_name": "Emma Gagnon",
+    "contact": {
+      "phone": "+1-613-555-1004",
+      "email": "emma.gagnon4@example.ca"
+    },
+    "hazard_summary": {
+      "event": "severe thunderstorm warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": true,
+      "hail_diameter_cm": 2.1,
+      "hail_descriptor": "nickel-sized",
+      "rainfall_mm": 50.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Older tar_and_gravel roof (16 years old) susceptible to wind and hail damage",
+        "High-rise condo balconies exposed to high winds"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement: Surface overland flood runoff is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "LIFE_SAFETY",
+        "action": "Seek indoor shelter immediately and stay away from windows and doors.",
+        "rationale": "Severe thunderstorms with 90 km/h wind gusts and hail pose a direct threat to personal safety."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Secure all loose items on balconies, patios, or near windows to prevent them from becoming dangerous projectiles in high winds.",
+        "rationale": "High winds (90 km/h) can turn unsecured outdoor items into projectiles, causing property damage or injury."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Move any valuable items from ground-level areas that could be exposed to surface runoff due to torrential downpours, as overland water is not covered by your policy.",
+        "rationale": "Torrential downpours (exceeding 50 mm) combined with a lack of overland water coverage create a significant risk of uninsured property damage from surface runoff."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Severe thunderstorm with 90 km/h winds & hail. Seek indoor shelter. Secure balcony items. Overland water uninsured.",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Severe thunderstorm with 90 km/h winds & hail. Seek indoor shelter, secure balcony items, and protect valuables from potential overland water runoff."
+      }
+    },
+    "dispatch_id": "DISP-DB803E9E"
+  },
+  "HOM-1005": {
+    "property_id": "HOM-1005",
+    "policyholder_name": "Oliver Lee",
+    "contact": {
+      "phone": "+1-613-555-1005",
+      "email": "oliver.lee5@example.ca"
+    },
+    "hazard_summary": {
+      "event": "severe thunderstorm warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": true,
+      "hail_diameter_cm": 2.1,
+      "hail_descriptor": "nickel-sized",
+      "rainfall_mm": 50.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "20-year-old asphalt shingle roof vulnerable to wind and hail",
+        "Finished basement vulnerable to water damage",
+        "No backwater valve increasing sewer backup risk"
+      ],
+      "coverage_gaps": [
+        "Sewer Backup Endorsement is missing, basement sewer backup damage is uninsured"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "OUTDOOR_PROTECTION",
+        "action": "Secure or bring indoors all loose outdoor items such as patio furniture, garbage bins, and garden tools to prevent them from becoming projectiles in 90 km/h winds.",
+        "rationale": "High wind gusts can turn unsecured items into dangerous projectiles, causing property damage or injury."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move vehicles into a garage or covered area to protect them from potential damage by nickel-sized hail (2.1 cm).",
+        "rationale": "Hail of this size can cause significant dents and damage to vehicle exteriors."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Elevate valuable items in the finished basement to protect them from potential water damage due to torrential downpours and the uninsured sewer backup risk.",
+        "rationale": "Elevating valuables mitigates damage from any water intrusion, especially given the finished basement and the lack of sewer backup coverage."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Severe storm with 90 km/h winds & hail. Secure outdoor items, move vehicles to cover. Stay safe indoors!",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Severe thunderstorm with 90 km/h winds, nickel-sized hail, and heavy rain. Secure outdoor items, move vehicles to cover, and elevate basement valuables. Stay safe indoors."
+      }
+    },
+    "dispatch_id": "DISP-0B9202E4"
+  },
+  "HOM-1006": {
+    "property_id": "HOM-1006",
+    "policyholder_name": "Charlotte Wilson",
+    "contact": {
+      "phone": "+1-613-555-1006",
+      "email": "charlotte.wilson6@example.ca"
+    },
+    "hazard_summary": {
+      "event": "severe thunderstorm warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": true,
+      "hail_diameter_cm": 2.1,
+      "hail_descriptor": "nickel-sized",
+      "rainfall_mm": 50.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Metal roof (24 years old) susceptible to wind and hail damage",
+        "Unfinished basement with no sump pump or backwater valve, increasing risk of water damage from heavy rainfall"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move all vehicles into a garage or covered parking to protect them from potential hail and wind damage.",
+        "rationale": "90 km/h wind gusts and nickel-sized hail pose a significant risk of damage to vehicles."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_SHELTER",
+        "action": "Secure all loose outdoor items such as patio furniture, garbage bins, and decorations, or bring them indoors to prevent them from becoming dangerous projectiles in high winds.",
+        "rationale": "High wind gusts of 90 km/h can turn unsecured outdoor items into projectiles, causing property damage or injury."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure all windows and doors are securely closed and locked to prevent water ingress from torrential downpours. Monitor the unfinished basement for any signs of water intrusion.",
+        "rationale": "50 mm of rainfall combined with an unfinished basement and no sump pump or backwater valve increases the risk of water damage."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Severe thunderstorm with 90km/h winds & hail. Move vehicles to cover & secure outdoor items. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Severe thunderstorm warning for your area. Move vehicles to covered parking and secure all loose outdoor items immediately. Monitor basement for water."
+      }
+    },
+    "dispatch_id": "DISP-75C5E0AA"
+  },
+  "HOM-1007": {
+    "property_id": "HOM-1007",
+    "policyholder_name": "James Bouchard",
+    "contact": {
+      "phone": "+1-613-555-1007",
+      "email": "james.bouchard7@example.ca"
+    },
+    "hazard_summary": {
+      "event": "severe thunderstorm warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": true,
+      "hail_diameter_cm": 2.1,
+      "hail_descriptor": "nickel-sized",
+      "rainfall_mm": 50.0,
+      "snowfall_cm": 0.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Potential for wind and hail damage to roof (despite being new slate)",
+        "Crawlspace basement susceptible to overland flooding"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement: UNINSURED for surface overland flood runoff"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure downspouts are extended away from the foundation and clear any nearby storm drains to prevent overland flooding, as you are uninsured for this peril.",
+        "rationale": "Heavy rainfall (50 mm) combined with a critical policy gap for overland water coverage increases the risk of uninsured water damage to your property."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move vehicles into a garage or carport, or cover them with a protective tarp, to shield against 90 km/h wind gusts and nickel-sized hail.",
+        "rationale": "High winds and hail can cause significant damage to vehicles, leading to costly repairs."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "Secure or bring indoors any loose outdoor items such as patio furniture, garbage bins, and garden tools to prevent them from becoming projectiles in 90 km/h winds.",
+        "rationale": "Strong wind gusts can turn unsecured objects into dangerous projectiles, causing property damage or injury."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Severe thunderstorm with 90km/h winds, hail, 50mm rain. Extend downspouts & clear drains. Overland flood is uninsured. Secure outdoor items. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Severe thunderstorm warning for your area. Extend downspouts & clear drains to prevent uninsured overland flood damage. Secure outdoor items and protect vehicles."
+      }
+    },
+    "dispatch_id": "DISP-E9FFCCC4"
+  },
+  "HOM-1008": {
+    "property_id": "HOM-1008",
+    "policyholder_name": "Amelia Johnson",
+    "contact": {
+      "phone": "+1-613-555-1008",
+      "email": "amelia.johnson8@example.ca"
+    },
+    "hazard_summary": {
+      "event": "severe thunderstorm warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": true,
+      "hail_diameter_cm": 2.1,
+      "hail_descriptor": "nickel-sized",
+      "rainfall_mm": 50.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Highrise condo with 7-year-old tar_and_gravel roof (potential for wind/hail damage to common areas/balconies)",
+        "Slab-on-grade basement (potential for drainage issues with heavy rain)"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_SHELTER",
+        "action": "Secure any loose items on balconies or patios to prevent them from becoming projectiles in high winds.",
+        "rationale": "High winds can cause unsecured items to become dangerous projectiles, damaging property or causing injury."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure all windows and balcony doors are securely closed and locked to prevent water intrusion from torrential downpours and wind-driven rain.",
+        "rationale": "Heavy rainfall and strong winds can force water into the dwelling through unsealed openings, leading to interior water damage."
+      },
+      {
+        "priority": 3,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move vehicles to an underground or covered parking area if available, to protect them from hail damage.",
+        "rationale": "Nickel-sized hail can cause significant damage to vehicles, and covered parking offers protection."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Severe thunderstorm with 90 km/h winds and hail. Secure balcony items and close windows. Move vehicles to covered parking if possible. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Severe thunderstorm with 90 km/h winds and hail. Secure balcony items, close windows, and move vehicles to covered parking. Stay safe!"
+      }
+    },
+    "dispatch_id": "DISP-A5680B99"
+  },
+  "HOM-1009": {
+    "property_id": "HOM-1009",
+    "policyholder_name": "William Cote",
+    "contact": {
+      "phone": "+1-613-555-1009",
+      "email": "william.cote9@example.ca"
+    },
+    "hazard_summary": {
+      "event": "severe thunderstorm warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": true,
+      "hail_diameter_cm": 2.1,
+      "hail_descriptor": "nickel-sized",
+      "rainfall_mm": 50.0,
+      "snowfall_cm": 0.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "11-year-old asphalt shingle roof vulnerable to high winds and hail",
+        "Finished basement vulnerable to water damage",
+        "No backwater valve increases sewer backup risk"
+      ],
+      "coverage_gaps": [
+        "Sewer Backup Endorsement: Basement sewer backup damage is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move vehicles to covered parking or a garage to protect against hail and wind-borne debris.",
+        "rationale": "High winds and nickel-sized hail pose a significant risk of damage to vehicles."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure all basement windows and doors are securely closed and sealed to prevent water ingress from torrential downpours.",
+        "rationale": "Torrential downpours with localized amounts exceeding 50 mm can lead to basement flooding if entry points are not secured."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Elevate valuable items in the basement to minimize potential water damage, especially given the lack of sewer backup coverage.",
+        "rationale": "With a finished basement and no sewer backup endorsement, there is a critical financial gap for potential sewer backup damage from heavy rainfall."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Severe thunderstorm with 90 km/h winds & hail. Move vehicles to shelter. Secure basement. Do NOT climb ladders. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Severe thunderstorm with 90 km/h winds & hail. Move vehicles to shelter. Secure basement windows/doors. Elevate basement valuables. Do NOT climb ladders."
+      }
+    },
+    "dispatch_id": "DISP-8C72E580"
+  },
+  "HOM-1010": {
+    "property_id": "HOM-1010",
+    "policyholder_name": "Sophia Brown",
+    "contact": {
+      "phone": "+1-613-555-1010",
+      "email": "sophia.brown10@example.ca"
+    },
+    "hazard_summary": {
+      "event": "severe thunderstorm warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": true,
+      "hail_diameter_cm": 2.1,
+      "hail_descriptor": "nickel-sized",
+      "rainfall_mm": 50.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Metal roof (15 years old) susceptible to high winds and hail",
+        "Unfinished basement susceptible to water ingress from heavy rainfall"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement: NO - CRITICAL GAP: Surface overland flood runoff is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_SHELTER",
+        "action": "Seek shelter in the lowest level of the home, away from windows and doors, especially during peak wind gusts and hail.",
+        "rationale": "To ensure personal safety from 90 km/h wind gusts and nickel-sized hail."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move vehicles to an enclosed garage or to higher ground away from trees and potential flood areas.",
+        "rationale": "To protect vehicles from hail and wind damage, and from potential overland flooding due to 50mm rain and uninsured overland water."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Monitor the basement for any signs of water ingress and be prepared to use towels or buckets to manage minor leaks.",
+        "rationale": "To mitigate risk of water ingress to the unfinished basement due to 50mm rain, especially with the critical gap in overland water coverage."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Severe thunderstorm with 90km/h winds, hail, 50mm rain. Seek indoor shelter. Move vehicles to garage. Stay safe! Info: sophia.brown10@example.ca",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Severe thunderstorm with 90 km/h winds, nickel-sized hail, and 50 mm rain. Seek indoor shelter. Move vehicles to garage. Monitor basement for leaks."
+      }
+    },
+    "dispatch_id": "DISP-B683ADF1"
+  },
+  "HOM-1011": {
+    "property_id": "HOM-1011",
+    "policyholder_name": "Benjamin Gauthier",
+    "contact": {
+      "phone": "+1-613-555-1011",
+      "email": "benjamin.gauthier11@example.ca"
+    },
+    "hazard_summary": {
+      "event": "tornado warning in effect",
+      "wind_gust_kmh": 120,
+      "hail_detected": true,
+      "hail_diameter_cm": 3.5,
+      "hail_descriptor": "ping-pong ball size",
+      "rainfall_mm": null,
+      "snowfall_cm": null,
+      "tornado_risk": true,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Asphalt shingle roof vulnerable to high winds and large hail",
+        "Finished basement at risk from wind-driven rain and potential water ingress"
+      ],
+      "coverage_gaps": [
+        "Sewer Backup Endorsement: UNINSURED",
+        "Overland Water Endorsement: UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "LIFE_SAFETY",
+        "action": "Seek immediate shelter in the lowest interior room or basement, away from windows, due to the active tornado and extreme wind/hail risk.",
+        "rationale": "Direct protection from life-threatening tornado, high winds, and large hail."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move vehicles into a garage or to a covered area to protect them from large hail and damaging winds.",
+        "rationale": "Mitigate potential damage to vehicles from ping-pong ball sized hail and 120 km/h wind gusts."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure all windows and doors are securely closed and locked to prevent wind and rain intrusion.",
+        "rationale": "Minimize property damage from wind-driven rain and potential debris entry during the tornado."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "URGENT: Tornado Warning for your area. Seek immediate shelter in basement/interior room. Move vehicles to garage. Stay safe! #TornadoWarning",
+      "push_notification": {
+        "title": "Urgent: Tornado Warning - Seek Shelter Now!",
+        "body": "A tornado is occurring. Seek immediate shelter in your basement or an interior room away from windows. Move vehicles to garage. Stay safe!"
+      }
+    },
+    "dispatch_id": "DISP-33B5D6F2"
+  },
+  "HOM-1012": {
+    "property_id": "HOM-1012",
+    "policyholder_name": "Isabella Campbell",
+    "contact": {
+      "phone": "+1-613-555-1012",
+      "email": "isabella.campbell12@example.ca"
+    },
+    "hazard_summary": {
+      "event": "tornado warning in effect",
+      "wind_gust_kmh": 120,
+      "hail_detected": true,
+      "hail_diameter_cm": 3.5,
+      "hail_descriptor": "ping-pong ball size",
+      "rainfall_mm": null,
+      "snowfall_cm": null,
+      "tornado_risk": true,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "semi_detached dwelling",
+        "metal roof (8 years old) vulnerable to extreme wind and large hail"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_SHELTER",
+        "action": "Seek immediate shelter in the lowest interior room of your home, away from windows.",
+        "rationale": "An active tornado warning with extreme winds and hail poses an immediate life-safety threat. Prioritize personal safety above all else."
+      },
+      {
+        "priority": 2,
+        "category": "LIFE_SAFETY",
+        "action": "Ensure all occupants are aware of the tornado warning and know where to take shelter.",
+        "rationale": "Clear communication and preparedness among household members are crucial for safety during a tornado."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "Stay informed by monitoring local weather updates from reliable sources.",
+        "rationale": "Continuous monitoring of official weather alerts provides critical updates on the storm's progression and duration."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Tornado Warning! Seek immediate shelter in lowest interior room. Ensure all occupants are aware. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Tornado Warning - Seek Shelter Now",
+        "body": "A tornado warning is active. Seek immediate shelter in the lowest interior room, away from windows. Ensure all occupants are aware. Stay safe!"
+      }
+    },
+    "dispatch_id": "DISP-4FE56F0A"
+  },
+  "HOM-1013": {
+    "property_id": "HOM-1013",
+    "policyholder_name": "Lucas Morin",
+    "contact": {
+      "phone": "+1-613-555-1013",
+      "email": "lucas.morin13@example.ca"
+    },
+    "hazard_summary": {
+      "event": "tornado warning in effect",
+      "wind_gust_kmh": 120,
+      "hail_detected": true,
+      "hail_diameter_cm": 3.5,
+      "hail_descriptor": "ping-pong ball size",
+      "rainfall_mm": null,
+      "snowfall_cm": null,
+      "tornado_risk": true,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "12-year-old slate roof vulnerable to high winds and hail",
+        "Crawlspace (though sump pump is present)"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "LIFE_SAFETY",
+        "action": "Immediately move to the lowest interior room or basement, away from windows, and take cover.",
+        "rationale": "An active tornado warning with extreme winds and hail poses an immediate threat to life and safety."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_SHELTER",
+        "action": "Stay informed by monitoring local weather updates from Environment Canada or local news channels.",
+        "rationale": "Continuous monitoring is crucial for real-time safety decisions during a tornado warning."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Close and secure all windows and doors to minimize potential wind and hail intrusion.",
+        "rationale": "Securing openings helps prevent wind and hail damage to the interior of your home."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Tornado Warning for HOM-1013. Seek immediate shelter in basement/interior room. Stay away from windows. Monitor local alerts. #TornadoSafety",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Tornado Warning for your property (HOM-1013). Seek immediate shelter in the lowest interior room or basement, away from windows. Stay safe!"
+      }
+    },
+    "dispatch_id": "DISP-273CE409"
+  },
+  "HOM-1014": {
+    "property_id": "HOM-1014",
+    "policyholder_name": "Mia Martin",
+    "contact": {
+      "phone": "+1-613-555-1014",
+      "email": "mia.martin14@example.ca"
+    },
+    "hazard_summary": {
+      "event": "Tornado Warning",
+      "wind_gust_kmh": 120,
+      "hail_detected": true,
+      "hail_diameter_cm": 3.5,
+      "hail_descriptor": "ping-pong ball size",
+      "rainfall_mm": null,
+      "snowfall_cm": 0.0,
+      "tornado_risk": true,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Highrise condo (potential for exterior damage to building structure)",
+        "Slab-on-grade (vulnerable to overland water entry at ground level)"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement (CRITICAL GAP: Surface overland flood runoff is UNINSURED)"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "LIFE_SAFETY",
+        "action": "Seek immediate shelter in an interior room on the lowest floor, away from windows, doors, and outside walls. If in a high-rise, use an interior hallway or a small interior room.",
+        "rationale": "An active tornado poses an extreme and immediate threat to life and safety."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Move valuable items and electronics off the floor, especially near exterior doors or windows, to protect against potential overland water entry.",
+        "rationale": "The property has a critical gap in overland water coverage, and a tornado can bring heavy rainfall leading to surface runoff."
+      },
+      {
+        "priority": 3,
+        "category": "VEHICLE_PROTECTION",
+        "action": "If you have a vehicle parked outdoors, move it to an underground parking garage or a covered area if it is safe to do so, to protect against hail and wind damage.",
+        "rationale": "Damaging winds and ping-pong ball sized hail are occurring, posing a significant risk to vehicles."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "URGENT: Tornado Warning! Seek immediate interior shelter. Move valuables off floor. Stay safe! Info: +1-613-555-1014",
+      "push_notification": {
+        "title": "Urgent: Tornado Warning - Seek Shelter Now",
+        "body": "A tornado is occurring. Seek immediate interior shelter away from windows. Move valuables off the floor due to overland water risk."
+      }
+    },
+    "dispatch_id": "DISP-675BCCD7"
+  },
+  "HOM-1015": {
+    "property_id": "HOM-1015",
+    "policyholder_name": "Henry Lavoie",
+    "contact": {
+      "phone": "+1-613-555-1015",
+      "email": "henry.lavoie15@example.ca"
+    },
+    "hazard_summary": {
+      "event": "tornado warning in effect",
+      "wind_gust_kmh": 120,
+      "hail_detected": true,
+      "hail_diameter_cm": 3.5,
+      "hail_descriptor": "ping-pong ball size",
+      "rainfall_mm": null,
+      "snowfall_cm": null,
+      "tornado_risk": true,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "asphalt_shingle roof (20 years old) vulnerable to high winds and large hail",
+        "finished basement vulnerable to sewer backup",
+        "no backwater valve increases risk of sewer backup"
+      ],
+      "coverage_gaps": [
+        "Sewer Backup Endorsement: NO - Basement sewer backup damage is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "LIFE_SAFETY",
+        "action": "Seek immediate shelter in the lowest interior room of your home, away from windows.",
+        "rationale": "An active tornado warning and extreme wind risk (120 km/h) pose an immediate threat to life and property."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move vehicles into a garage or to a covered area.",
+        "rationale": "Large hail (ping-pong ball size) and damaging winds (120 km/h) can cause significant damage to vehicles."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure all basement floor drains are covered and avoid using water (showers, toilets, washing machines).",
+        "rationale": "Without sewer backup coverage and no backwater valve, minimizing water usage and covering drains can reduce the risk of uninsured basement sewer backup damage during heavy rainfall associated with severe storms."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "URGENT: Tornado Warning! Seek immediate shelter in lowest interior room. Move vehicles to cover. Avoid water use due to sewer backup risk. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Tornado Warning & Storm Mitigation Required",
+        "body": "Tornado Warning active! Seek immediate shelter. Move vehicles to garage. Avoid water use to prevent uninsured sewer backup. Stay safe!"
+      }
+    },
+    "dispatch_id": "DISP-FE3E57D5"
+  },
+  "HOM-1016": {
+    "property_id": "HOM-1016",
+    "policyholder_name": "Evelyn Anderson",
+    "contact": {
+      "phone": "+1-613-555-1016",
+      "email": "evelyn.anderson16@example.ca"
+    },
+    "hazard_summary": {
+      "event": "Tornado Warning",
+      "wind_gust_kmh": 120,
+      "hail_detected": true,
+      "hail_diameter_cm": 3.5,
+      "hail_descriptor": "ping-pong ball size",
+      "rainfall_mm": null,
+      "snowfall_cm": null,
+      "tornado_risk": true,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "24-year-old metal roof susceptible to extreme wind and hail damage"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_SHELTER",
+        "action": "Seek immediate shelter in the lowest level of your home, away from windows, due to the active tornado and extreme weather.",
+        "rationale": "To protect life and minimize injury risk from tornado, high winds, and flying debris."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move vehicles into a garage or covered area to protect against hail and flying debris.",
+        "rationale": "To prevent damage to vehicles from large hail and wind-borne objects."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "URGENT: Tornado Warning for HOM-1016. Seek immediate shelter in lowest level, away from windows. Move vehicles to garage. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Tornado Warning - Seek Shelter Immediately",
+        "body": "A tornado is active near your property (HOM-1016). Seek immediate shelter in the lowest level of your home, away from windows. Move vehicles to garage. Do not go outside."
+      }
+    },
+    "dispatch_id": "DISP-DEF6A44F"
+  },
+  "HOM-1017": {
+    "property_id": "HOM-1017",
+    "policyholder_name": "Alexander Fortin",
+    "contact": {
+      "phone": "+1-613-555-1017",
+      "email": "alexander.fortin17@example.ca"
+    },
+    "hazard_summary": {
+      "event": "tornado warning in effect",
+      "wind_gust_kmh": 120,
+      "hail_detected": true,
+      "hail_diameter_cm": 3.5,
+      "hail_descriptor": "ping-pong ball size",
+      "rainfall_mm": null,
+      "snowfall_cm": null,
+      "tornado_risk": true,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Crawlspace vulnerable to water ingress",
+        "Roof and exterior vulnerable to extreme wind and hail from tornado"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement missing (UNINSURED for surface overland flood runoff)"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "LIFE_SAFETY",
+        "action": "Seek immediate shelter in the lowest interior room or basement, away from windows, due to the active tornado warning and extreme wind/hail risk.",
+        "rationale": "Direct threat to life and safety from active tornado, high winds, and large hail."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move vehicles into a garage or to a covered area to protect them from large hail and flying debris.",
+        "rationale": "Vehicles are at high risk of damage from ping-pong ball sized hail and wind-driven debris."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure all ground-level windows and doors are securely closed and locked to prevent wind-driven rain and debris entry, especially given the crawlspace and lack of overland water coverage.",
+        "rationale": "Mitigate potential water damage to the crawlspace and interior from wind-driven rain, exacerbated by the lack of overland water coverage."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "URGENT: Tornado Warning for HOM-1017. Seek immediate shelter indoors. Move vehicles to safety. Stay away from windows. #TornadoSafety",
+      "push_notification": {
+        "title": "Urgent: Tornado Warning - Seek Shelter Now!",
+        "body": "A tornado is occurring near your property (HOM-1017). Seek immediate shelter in the lowest interior room. Move vehicles to safety. Stay away from windows."
+      }
+    },
+    "dispatch_id": "DISP-ACC5F9D2"
+  },
+  "HOM-1018": {
+    "property_id": "HOM-1018",
+    "policyholder_name": "Harper Taylor",
+    "contact": {
+      "phone": "+1-613-555-1018",
+      "email": "harper.taylor18@example.ca"
+    },
+    "hazard_summary": {
+      "event": "tornado warning in effect",
+      "wind_gust_kmh": 120,
+      "hail_detected": true,
+      "hail_diameter_cm": 3.5,
+      "hail_descriptor": "ping-pong ball size",
+      "rainfall_mm": null,
+      "snowfall_cm": null,
+      "tornado_risk": true,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Highrise condo exterior elements vulnerable to extreme wind and hail",
+        "Tar and gravel roof vulnerable to extreme hail"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "LIFE_SAFETY",
+        "action": "Immediately seek shelter in the lowest interior room or an underground parking garage, away from windows and doors. Follow local emergency instructions.",
+        "rationale": "An active tornado warning with extreme winds and hail poses an immediate and severe threat to life and property. Seeking safe shelter is paramount."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "If safe to do so and time permits, move vehicles to an underground parking garage or a protected area away from windows, trees, and potential falling debris.",
+        "rationale": "Extreme winds and hail can cause significant damage to vehicles. Protecting them can reduce potential losses."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_SHELTER",
+        "action": "Close all windows and doors, and draw blinds or curtains to protect against flying debris and shattered glass.",
+        "rationale": "Closing windows and drawing blinds can help protect against shattered glass and flying debris, enhancing indoor safety during extreme weather."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "URGENT: Tornado Warning for HOM-1018. Seek immediate shelter in an interior room or underground. Stay away from windows. Life safety is paramount.",
+      "push_notification": {
+        "title": "Urgent: Tornado Warning - Seek Shelter Now",
+        "body": "A tornado is active near HOM-1018. Immediately seek shelter in an interior room or underground. Stay away from windows. Close all windows and draw blinds."
+      }
+    },
+    "dispatch_id": "DISP-B64D6397"
+  },
+  "HOM-1019": {
+    "property_id": "HOM-1019",
+    "policyholder_name": "Michael Gagn\u00e9",
+    "contact": {
+      "phone": "+1-613-555-1019",
+      "email": "michael.gagn\u00e919@example.ca"
+    },
+    "hazard_summary": {
+      "event": "tornado warning in effect",
+      "wind_gust_kmh": 120,
+      "hail_detected": true,
+      "hail_diameter_cm": 3.5,
+      "hail_descriptor": "ping-pong ball size",
+      "rainfall_mm": null,
+      "snowfall_cm": null,
+      "tornado_risk": true,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "asphalt_shingle roof (11 years old) vulnerable to high winds and hail",
+        "finished basement vulnerable to water damage",
+        "no backwater valve increases sewer backup risk"
+      ],
+      "coverage_gaps": [
+        "Sewer Backup Endorsement: Basement sewer backup damage is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "LIFE_SAFETY",
+        "action": "Seek immediate shelter in the lowest level, interior room, or basement away from windows, walls, and doors. This is critical due to the active tornado.",
+        "rationale": "An active tornado with damaging winds and hail poses an extreme danger to life and property. Immediate shelter is paramount."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move vehicles into a garage or to a covered area to protect them from hail and wind damage.",
+        "rationale": "Ping-pong ball sized hail and 120 km/h winds can cause significant damage to vehicles if left exposed."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Minimize water usage (e.g., avoid flushing toilets, running dishwashers/washing machines) to reduce the risk of sewer backup into your finished basement.",
+        "rationale": "With a finished basement and no sewer backup endorsement, minimizing water usage can help prevent uninsured damage from potential sewer system overload during severe weather."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "URGENT: Tornado Warning! Seek immediate shelter. Move vehicles to safety. Minimize water use. Stay safe, Michael. #TornadoSafety",
+      "push_notification": {
+        "title": "Urgent: Tornado Warning & Mitigation Required",
+        "body": "Tornado Warning active for your area. Seek immediate shelter. Move vehicles to safety. Minimize water usage to prevent sewer backup. Stay safe."
+      }
+    },
+    "dispatch_id": "DISP-1F458B4A"
+  },
+  "HOM-1020": {
+    "property_id": "HOM-1020",
+    "policyholder_name": "Camila MacDonald",
+    "contact": {
+      "phone": "+1-613-555-1020",
+      "email": "camila.macdonald20@example.ca"
+    },
+    "hazard_summary": {
+      "event": "tornado warning in effect",
+      "wind_gust_kmh": 120,
+      "hail_detected": true,
+      "hail_diameter_cm": 3.5,
+      "hail_descriptor": "ping-pong ball size",
+      "rainfall_mm": null,
+      "snowfall_cm": 0.0,
+      "tornado_risk": true,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "semi_detached dwelling",
+        "metal roof (15 years old)",
+        "unfinished basement",
+        "NO sump pump"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement: Surface overland flood runoff is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "LIFE_SAFETY",
+        "action": "Seek immediate shelter in the lowest interior room of your home, away from windows, due_to_the_active_tornado_warning.",
+        "rationale": "An active tornado warning indicates extreme danger from damaging winds and potential debris, requiring immediate life-safety action."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move all vehicles into a garage or covered area to protect them from large hail (ping-pong ball size) and damaging winds.",
+        "rationale": "Large hail and 120 km/h winds can cause significant damage to vehicles if left exposed."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Monitor your unfinished basement for any signs of water ingress and be prepared for potential flooding, especially given the lack of a sump pump and uninsured overland water coverage.",
+        "rationale": "Severe thunderstorms often bring heavy rainfall, and without a sump pump and overland water coverage, your unfinished basement is highly vulnerable to water damage."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "URGENT: Tornado Warning for HOM-1020. Seek immediate shelter. Move vehicles to garage. Monitor basement. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Tornado Warning & Storm Mitigation Required",
+        "body": "Tornado warning active for your property. Seek immediate shelter. Move vehicles to garage. Monitor basement for flooding. Stay safe!"
+      }
+    },
+    "dispatch_id": "DISP-BBC82499"
+  },
+  "HOM-1031": {
+    "property_id": "HOM-1031",
+    "policyholder_name": "Carter Patel",
+    "contact": {
+      "phone": "+1-403-555-1031",
+      "email": "carter.patel31@example.ca"
+    },
+    "hazard_summary": {
+      "event": "snowfall warning in effect",
+      "wind_gust_kmh": null,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": null,
+      "snowfall_cm": 35.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Finished basement",
+        "Asphalt shingle roof (potential for heavy snow load and ice damming)"
+      ],
+      "coverage_gaps": [
+        "Sewer Backup Endorsement (UNINSURED)",
+        "Overland Water Endorsement (UNINSURED)"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Clear snow from around the foundation and basement window wells to prevent water ingress when snow melts.",
+        "rationale": "Heavy snowfall can lead to significant meltwater accumulation around the foundation, increasing the risk of basement flooding, especially with uninsured sewer backup and overland water."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Monitor for potential ice damming on the roof and consider professional snow removal if accumulation becomes excessive to prevent structural stress and water intrusion.",
+        "rationale": "Heavy, wet snow can cause ice dams on asphalt shingle roofs, leading to water backup under shingles and into the home, and excessive snow load can stress the roof structure."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure downspouts are clear and extended away from the foundation to direct meltwater away from the house.",
+        "rationale": "Properly functioning downspouts are crucial to divert large volumes of meltwater away from the home's foundation, reducing the risk of basement water damage."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Snowfall Warning for HOM-1031. Clear snow from foundation & window wells. Monitor roof for ice dams. Stay safe! Info: +1-403-555-1031",
+      "push_notification": {
+        "title": "Urgent: Snowfall Mitigation Required",
+        "body": "Heavy snowfall expected for your property. Clear snow from foundation and window wells. Monitor roof for ice damming. Ensure downspouts are clear."
+      }
+    },
+    "dispatch_id": "DISP-A7D4C050"
+  },
+  "HOM-1032": {
+    "property_id": "HOM-1032",
+    "policyholder_name": "Ella Robinson",
+    "contact": {
+      "phone": "+1-403-555-1032",
+      "email": "ella.robinson32@example.ca"
+    },
+    "hazard_summary": {
+      "event": "snowfall warning in effect",
+      "wind_gust_kmh": null,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": null,
+      "snowfall_cm": 35.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Potential for significant roof load stress from heavy wet snow",
+        "Unfinished basement with no sump pump or backwater valve (though covered by policy)"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Clear snow from around basement windows and entryways to prevent water ingress during melt.",
+        "rationale": "Heavy snowfall can lead to water seepage into the basement if snow accumulates against the foundation and melts."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Monitor for ice damming on the roof and safely remove snow from lower roof edges if accessible from the ground to prevent water backup under shingles.",
+        "rationale": "Ice dams can cause water to back up under roof coverings, leading to leaks and interior water damage."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure downspouts are clear and extended away from the foundation to direct meltwater effectively.",
+        "rationale": "Proper drainage prevents meltwater from pooling around the foundation, reducing the risk of basement water intrusion."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy snow expected. Clear snow from basement windows & ensure downspouts are clear. Monitor for ice dams. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Snowfall Mitigation Required",
+        "body": "Heavy snowfall expected. Clear snow from basement windows and entryways. Monitor for ice damming and ensure downspouts are clear."
+      }
+    },
+    "dispatch_id": "DISP-0669788A"
+  },
+  "HOM-1033": {
+    "property_id": "HOM-1033",
+    "policyholder_name": "Wyatt Boucher",
+    "contact": {
+      "phone": "+1-403-555-1033",
+      "email": "wyatt.boucher33@example.ca"
+    },
+    "hazard_summary": {
+      "event": "snowfall warning in effect",
+      "wind_gust_kmh": null,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": null,
+      "snowfall_cm": 35.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Heavy wet snow load on 12-year-old slate roof",
+        "Crawlspace basement susceptible to water ingress from melting snow"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_SHELTER",
+        "action": "Safely clear heavy snow from your roof if accumulation exceeds 15 cm, or arrange for professional snow removal to prevent structural stress.",
+        "rationale": "Heavy wet snow can cause significant roof load stress, especially on older roofs, leading to potential damage."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Clear snow accumulation from around your home's foundation, especially near the crawlspace, and ensure proper drainage to prevent water ingress when snow melts.",
+        "rationale": "Melting snow can lead to water pooling around the foundation, potentially entering the crawlspace and causing damage."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "Monitor local utility reports for power outages and prepare an emergency kit, as heavy snow can cause tree limbs to break and damage power lines.",
+        "rationale": "Heavy snowfall increases the risk of tree limb breakage and power outages, impacting home safety and comfort."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy snow (35cm) expected. Safely clear roof snow or get professional help to prevent damage. Monitor for power outages. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Heavy Snowfall Warning",
+        "body": "Heavy snowfall (35cm) expected. Safely clear roof snow to prevent structural stress. Clear snow from foundation. Monitor for power outages."
+      }
+    },
+    "dispatch_id": "DISP-A8197B66"
+  },
+  "HOM-1034": {
+    "property_id": "HOM-1034",
+    "policyholder_name": "Avery Walker",
+    "contact": {
+      "phone": "+1-403-555-1034",
+      "email": "avery.walker34@example.ca"
+    },
+    "hazard_summary": {
+      "event": "snowfall warning in effect",
+      "wind_gust_kmh": null,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": null,
+      "snowfall_cm": 35.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "highrise_condo",
+        "tar_and_gravel roof (16 years old) susceptible to heavy snow load"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement: NO - Surface overland flood runoff is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Clear heavy snow from balconies and accessible common areas to reduce structural load and prevent water ingress when snow melts.",
+        "rationale": "Heavy wet snow can cause significant roof/balcony load stress and lead to water intrusion as it melts, especially for older roofs."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Monitor for any signs of water leakage or dampness around windows, balcony doors, and interior walls as snow accumulates and melts.",
+        "rationale": "Melting snow can find pathways into the dwelling, causing interior water damage."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Be vigilant for surface runoff and potential overland flooding once the snow begins to melt, as your policy lacks overland water coverage.",
+        "rationale": "Rapid snowmelt can lead to significant surface water accumulation and potential flooding, which is not covered by your current policy."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy snow expected. Clear balconies to prevent water issues. Monitor for leaks. Overland water not covered. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Snowfall Warning - Mitigation Required",
+        "body": "Heavy snow expected. Clear balconies to prevent water issues. Monitor for leaks. Be aware of overland water risk (uninsured)."
+      }
+    },
+    "dispatch_id": "DISP-D31C0842"
+  },
+  "HOM-1035": {
+    "property_id": "HOM-1035",
+    "policyholder_name": "Jayden P\u00e9trin",
+    "contact": {
+      "phone": "+1-403-555-1035",
+      "email": "jayden.p\u00e9trin35@example.ca"
+    },
+    "hazard_summary": {
+      "event": "snowfall warning in effect",
+      "wind_gust_kmh": null,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": null,
+      "snowfall_cm": 35.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Asphalt shingle roof (20 years old) susceptible to heavy snow load",
+        "Finished basement"
+      ],
+      "coverage_gaps": [
+        "Sewer Backup Endorsement: NO - Basement sewer backup damage is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_SHELTER",
+        "action": "Monitor snow accumulation on your roof. If safe to do so, clear heavy snow to prevent structural stress, or consider hiring a professional.",
+        "rationale": "Heavy snowfall (25-35 cm) can lead to significant roof load stress, especially on an older asphalt shingle roof (20 years old)."
+      },
+      {
+        "priority": 2,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Park vehicles in a garage or covered area to protect them from heavy snow and potential falling tree limbs.",
+        "rationale": "Rapidly accumulating wet heavy snow creates hazardous driving conditions and increases the risk of tree limb breakage onto power lines."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Be aware of the critical gap in your policy regarding sewer backup and consider contacting your insurer to discuss adding this endorsement.",
+        "rationale": "Your finished basement is vulnerable to sewer backup, and your policy currently does not cover this, representing a significant financial risk."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy snow (up to 35cm) expected. Clear roof if safe, park vehicles in garage. Your basement sewer backup is uninsured. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Snowfall Warning - Mitigation Required",
+        "body": "Heavy snow (up to 35cm) expected. Clear roof if safe, park vehicles in garage. Review your policy for uninsured sewer backup."
+      }
+    },
+    "dispatch_id": "DISP-227D46EC"
+  },
+  "HOM-1036": {
+    "property_id": "HOM-1036",
+    "policyholder_name": "Sofia Hall",
+    "contact": {
+      "phone": "+1-403-555-1036",
+      "email": "sofia.hall36@example.ca"
+    },
+    "hazard_summary": {
+      "event": "snowfall warning in effect",
+      "wind_gust_kmh": null,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": null,
+      "snowfall_cm": 35.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "24-year-old metal roof susceptible to heavy snow load",
+        "Unfinished basement (though covered for water perils)"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_SHELTER",
+        "action": "Regularly monitor snow accumulation on your roof to prevent excessive load and potential structural stress.",
+        "rationale": "Heavy wet snow can cause significant roof load stress, especially on older roofs. Monitoring helps prevent structural damage."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Clear snow away from your home's foundation and all egress points to prevent water ingress during melt and ensure clear exits.",
+        "rationale": "As snow melts, water can accumulate around the foundation, potentially leading to water ingress. Clearing snow helps direct water away."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "Prepare an emergency kit with essentials like flashlights, blankets, and non-perishable food in case of power outages.",
+        "rationale": "Heavy snowfall can lead to tree limb breakage onto power lines, causing power disruptions."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: 35cm snow expected. Monitor roof snow load & clear snow from foundation. Prepare for power outages. Stay safe! #SnowSafety",
+      "push_notification": {
+        "title": "Urgent: Snowfall Mitigation Required",
+        "body": "Heavy snowfall (35cm) expected. Monitor roof snow load, clear snow from foundation, and prepare for potential power outages. Stay safe."
+      }
+    },
+    "dispatch_id": "DISP-84E68997"
+  },
+  "HOM-1037": {
+    "property_id": "HOM-1037",
+    "policyholder_name": "John Girard",
+    "contact": {
+      "phone": "+1-403-555-1037",
+      "email": "john.girard37@example.ca"
+    },
+    "hazard_summary": {
+      "event": "snowfall warning in effect",
+      "wind_gust_kmh": null,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": null,
+      "snowfall_cm": 35.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Significant roof load stress from heavy snow",
+        "Potential tree limb breakage onto power lines"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Clear snow accumulation from around your home's foundation and egress windows to prevent water intrusion when snow melts, especially given the lack of overland water coverage.",
+        "rationale": "Heavy snowfall and subsequent melting can lead to overland flooding, which is not covered by your policy. Clearing snow away from the foundation mitigates this risk."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_SHELTER",
+        "action": "Monitor for power outages due to heavy snow causing tree limb breakage on power lines. Have an emergency kit ready with flashlights, blankets, and a charged phone.",
+        "rationale": "Heavy, wet snow can cause tree branches to break and fall on power lines, leading to outages. Being prepared ensures your safety and comfort."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "If snow accumulation on your roof becomes excessive, consider contacting a professional to safely remove it to prevent structural stress. Do NOT attempt to clear the roof yourself due to safety risks.",
+        "rationale": "Significant snow load can stress your roof structure. Professional removal is recommended to ensure safety and prevent damage."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy snow (35cm) expected. Clear snow from foundation to prevent water damage. Monitor for power outages. Stay safe! #SnowSafety",
+      "push_notification": {
+        "title": "Urgent: Heavy Snowfall Warning",
+        "body": "Heavy snowfall (35cm) expected. Clear snow from your foundation to prevent water damage. Monitor for power outages and stay safe."
+      }
+    },
+    "dispatch_id": "DISP-F3D44EEB"
+  },
+  "HOM-1038": {
+    "property_id": "HOM-1038",
+    "policyholder_name": "Chloe Young",
+    "contact": {
+      "phone": "+1-403-555-1038",
+      "email": "chloe.young38@example.ca"
+    },
+    "hazard_summary": {
+      "event": "snowfall warning in effect",
+      "wind_gust_kmh": null,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": null,
+      "snowfall_cm": 35.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "highrise_condo roof load stress from heavy snow",
+        "potential tree limb breakage onto power lines"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Clear balconies and ensure drains are free of snow and ice to prevent water accumulation when snow melts.",
+        "rationale": "Heavy snowfall can lead to significant water accumulation on balconies and roofs, potentially causing leaks or structural stress if drains are blocked."
+      },
+      {
+        "priority": 2,
+        "category": "LIFE_SAFETY",
+        "action": "Monitor for power outages and have an emergency kit ready due to potential tree limb breakage onto power lines.",
+        "rationale": "Wet, heavy snow can cause tree limbs to break and fall on power lines, leading to outages. An emergency kit ensures preparedness."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "If safe to do so, clear snow from any accessible common areas or shared pathways to prevent slip hazards.",
+        "rationale": "Accumulated snow creates slippery surfaces, increasing the risk of falls and injuries in common areas."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Snowfall Warning for HOM-1038. Clear balconies & drains to prevent water accumulation. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Snowfall Warning - Action Required",
+        "body": "Heavy snowfall expected. Clear balconies and drains to prevent water accumulation. Monitor for power outages."
+      }
+    },
+    "dispatch_id": "DISP-6A6778AF"
+  },
+  "HOM-1039": {
+    "property_id": "HOM-1039",
+    "policyholder_name": "Owen Poirier",
+    "contact": {
+      "phone": "+1-403-555-1039",
+      "email": "owen.poirier39@example.ca"
+    },
+    "hazard_summary": {
+      "event": "snowfall warning in effect",
+      "wind_gust_kmh": null,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": null,
+      "snowfall_cm": 35.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Asphalt shingle roof (11 years old) susceptible to heavy snow load",
+        "Finished basement at risk due to lack of backwater valve"
+      ],
+      "coverage_gaps": [
+        "Sewer backup damage is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "If safe to do so, clear heavy snow from your roof to prevent structural damage from excessive snow load. Consider hiring a professional if you cannot safely perform this task.",
+        "rationale": "Heavy snowfall (35 cm) can lead to significant roof load stress on your 11-year-old asphalt shingle roof, potentially causing structural damage."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Regularly monitor your finished basement for any signs of water ingress, especially around floor drains and fixtures, as you lack sewer backup coverage and a backwater valve.",
+        "rationale": "The critical gap in your policy for sewer backup and the absence of a backwater valve leave your finished basement vulnerable to water damage from potential sewer issues exacerbated by heavy precipitation."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Clear snow from around all downspouts and drains to ensure proper water runoff and prevent the formation of ice dams, which can cause water to back up under your roof shingles.",
+        "rationale": "Blocked downspouts and drains can lead to water accumulation and ice damming, increasing the risk of water penetration into your home, especially with significant snowfall."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: 35cm snow expected. Clear roof snow if safe. Monitor basement for water. Clear drains. Stay safe! #SnowWarning",
+      "push_notification": {
+        "title": "Urgent: Snowfall Warning - Mitigation Required",
+        "body": "Heavy snowfall (35cm) expected. Clear snow from roof if safe. Monitor basement for water ingress. Clear drains."
+      }
+    },
+    "dispatch_id": "DISP-49560246"
+  },
+  "HOM-1040": {
+    "property_id": "HOM-1040",
+    "policyholder_name": "Penelope Allen",
+    "contact": {
+      "phone": "+1-403-555-1040",
+      "email": "penelope.allen40@example.ca"
+    },
+    "hazard_summary": {
+      "event": "snowfall warning in effect",
+      "wind_gust_kmh": null,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": null,
+      "snowfall_cm": 35.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Heavy snow can cause significant roof load stress on 15-year-old metal roof",
+        "Unfinished basement with NO sump pump increases risk of water ingress from snowmelt",
+        "Potential for tree limb breakage onto power lines due to wet heavy snow"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement is missing, leaving surface overland flood runoff uninsured"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Clear snow away from your home's foundation and egress windows to prevent snowmelt from seeping into the basement.",
+        "rationale": "Heavy snowfall and subsequent melt can lead to basement flooding, especially with no sump pump and uninsured overland water coverage."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Regularly check your roof and eaves for ice dam formation and safely remove snow to prevent water intrusion.",
+        "rationale": "Heavy, wet snow increases the risk of ice dams, which can force water under shingles and into your home."
+      },
+      {
+        "priority": 3,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Park all vehicles in a garage or covered area to protect them from heavy snow accumulation and potential falling tree limbs.",
+        "rationale": "Heavy wet snow can cause tree branches to break, potentially damaging vehicles parked outdoors."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: 35cm snow expected. Clear snow from foundation & monitor roof for ice dams. Park vehicles under cover. Overland water is uninsured.",
+      "push_notification": {
+        "title": "Urgent: Snowfall Mitigation Required",
+        "body": "Heavy snowfall (35cm) expected. Clear snow from foundation, monitor for ice dams, and park vehicles under cover. Overland water is uninsured."
+      }
+    },
+    "dispatch_id": "DISP-F545CB83"
+  },
+  "HOM-1021": {
+    "property_id": "HOM-1021",
+    "policyholder_name": "Daniel Pelletier",
+    "contact": {
+      "phone": "+1-613-555-1021",
+      "email": "daniel.pelletier21@example.ca"
+    },
+    "hazard_summary": {
+      "event": "rainfall warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": 80.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Finished basement",
+        "Asphalt shingle roof (4 years old)"
+      ],
+      "coverage_gaps": [
+        "Sewer Backup Endorsement: NO - CRITICAL GAP: Basement sewer backup damage is UNINSURED",
+        "Overland Water Endorsement: NO - CRITICAL GAP: Surface overland flood runoff is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Elevate or move valuable items from the basement floor to protect against potential uninsured sewer backup or overland flooding.",
+        "rationale": "Heavy rainfall (80 mm) and critical policy gaps for sewer backup and overland water increase the risk of water damage to basement contents."
+      },
+      {
+        "priority": 2,
+        "category": "LIFE_SAFETY",
+        "action": "Secure or store loose outdoor items such as patio furniture, garbage bins, and garden tools to prevent them from becoming projectiles in 90 km/h wind gusts.",
+        "rationale": "High wind gusts (90 km/h) can cause unsecured outdoor items to become airborne, leading to property damage or injury."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure downspouts are clear of debris and directed at least 6 feet away from the foundation to effectively channel heavy rainfall away from the home.",
+        "rationale": "Proper downspout function is crucial to prevent water accumulation around the foundation, reducing the risk of basement leaks and potential uninsured overland water damage."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy rain & 90km/h winds. Move basement valuables & secure outdoor items. Do NOT climb ladders. Stay safe! Info: +1-613-555-1021",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Heavy rain (80mm) and 90 km/h winds expected. Move basement valuables, secure outdoor items. Do NOT climb ladders. Critical policy gaps for water damage."
+      }
+    },
+    "dispatch_id": "DISP-9ED371E0"
+  },
+  "HOM-1022": {
+    "property_id": "HOM-1022",
+    "policyholder_name": "Gianna Thompson",
+    "contact": {
+      "phone": "+1-613-555-1022",
+      "email": "gianna.thompson22@example.ca"
+    },
+    "hazard_summary": {
+      "event": "rainfall warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": 80.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": 180
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "unfinished basement",
+        "NO sump pump",
+        "NO backwater valve"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure downspouts are properly extended at ground level to direct water at least 6 feet away from the foundation.",
+        "rationale": "Heavy rainfall (80 mm) can lead to water pooling around the foundation, increasing the risk of basement flooding, especially with an unfinished basement and no sump pump/backwater valve."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Move any valuables or sensitive items off the floor in the unfinished basement to protect them from potential water damage.",
+        "rationale": "With 80 mm of rain and no sump pump or backwater valve, there is a significant risk of basement flooding."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "Secure or bring indoors any loose outdoor items such as patio furniture, garbage bins, and garden tools to prevent them from becoming projectiles in 90 km/h wind gusts.",
+        "rationale": "High wind gusts of 90 km/h can cause unsecured outdoor items to become dangerous projectiles, leading to property damage or injury."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy rain (80mm) & 90km/h winds expected. Extend downspouts, secure outdoor items, & move basement valuables off floor. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Heavy rainfall (80mm) and 90 km/h wind gusts expected. Ensure downspouts are extended, secure outdoor items, and move basement valuables off the floor. Stay safe!"
+      }
+    },
+    "dispatch_id": "DISP-ABC43E93"
+  },
+  "HOM-1023": {
+    "property_id": "HOM-1023",
+    "policyholder_name": "Matthew B\u00e9langer",
+    "contact": {
+      "phone": "+1-613-555-1023",
+      "email": "matthew.b\u00e9langer23@example.ca"
+    },
+    "hazard_summary": {
+      "event": "rainfall warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": 80.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": 180
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "crawlspace",
+        "no backwater valve"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Secure all outdoor furniture, decorations, and any loose items that could be picked up by strong winds.",
+        "rationale": "Wind gusts of 90 km/h can cause unsecured items to become projectiles, leading to property damage or injury."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure downspouts are extended away from the foundation at ground level to direct rainwater runoff effectively.",
+        "rationale": "Heavy rainfall (80 mm) requires proper drainage to prevent water accumulation around the foundation and potential crawlspace flooding."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Monitor your crawlspace frequently for any signs of water intrusion or sewer backup, especially in low-lying areas.",
+        "rationale": "Despite having a sump pump, the absence of a backwater valve combined with heavy rainfall increases the risk of sewer backup into the crawlspace."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Rainfall warning for HOM-1023. Secure outdoor items & ensure downspouts are extended. Winds 90km/h. Stay safe! Info: +1-613-555-1023",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Heavy rainfall (80mm) and 90km/h winds expected. Secure outdoor items, ensure downspouts are extended, and monitor crawlspace for water. Do NOT climb ladders."
+      }
+    },
+    "dispatch_id": "DISP-B4F6DA1F"
+  },
+  "HOM-1024": {
+    "property_id": "HOM-1024",
+    "policyholder_name": "Abigail White",
+    "contact": {
+      "phone": "+1-613-555-1024",
+      "email": "abigail.white24@example.ca"
+    },
+    "hazard_summary": {
+      "event": "rainfall warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": 80.0,
+      "snowfall_cm": 0.0,
+      "tornado_risk": false,
+      "lead_time_minutes": 180
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "highrise_condo (potential for balcony/window water intrusion)",
+        "slab_on_grade basement (ground-level units at risk from surface water)",
+        "90 km/h wind gusts (risk of damage to unsecured outdoor items)"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement: NO - CRITICAL GAP: Surface overland flood runoff is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Clear balcony drains and ensure windows/doors are tightly sealed to prevent water intrusion from heavy rainfall.",
+        "rationale": "Torrential downpours increase the risk of water entering your high-rise condo, especially with an uninsured overland water gap."
+      },
+      {
+        "priority": 2,
+        "category": "LIFE_SAFETY",
+        "action": "Secure or bring indoors any loose items on balconies or patios, such as furniture, plants, or decorations, to prevent them from becoming projectiles in 90 km/h wind gusts.",
+        "rationale": "High wind gusts can turn unsecured outdoor items into hazards, causing property damage or injury."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Monitor for urban flash flooding, particularly if your unit is on a lower floor, and be prepared to protect valuables from potential water ingress.",
+        "rationale": "Heavy rainfall can lead to localized urban flash flooding, posing a risk to ground-level units despite a slab-on-grade basement."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy rain & 90km/h winds expected. Clear balcony drains & secure outdoor items. Overland water is uninsured. Stay safe! #HOM1024",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Heavy rain (80mm) & 90km/h winds expected. Clear balcony drains & secure outdoor items. Overland water is uninsured. Monitor for flooding."
+      }
+    },
+    "dispatch_id": "DISP-0D95A4E2"
+  },
+  "HOM-1025": {
+    "property_id": "HOM-1025",
+    "policyholder_name": "Jackson L\u00e9vesque",
+    "contact": {
+      "phone": "+1-613-555-1025",
+      "email": "jackson.l\u00e9vesque25@example.ca"
+    },
+    "hazard_summary": {
+      "event": "rainfall warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": 80.0,
+      "snowfall_cm": 0.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "20-year-old asphalt shingle roof vulnerable to high winds",
+        "Finished basement vulnerable to urban flash flooding and sewer backup",
+        "No backwater valve increases sewer backup risk"
+      ],
+      "coverage_gaps": [
+        "Sewer Backup Endorsement: Basement sewer backup damage is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Move valuables and electronics off the basement floor to higher ground.",
+        "rationale": "Heavy rainfall and the lack of a backwater valve, combined with an uninsured sewer backup, put the finished basement at high risk of water damage."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure your sump pump is clear and operating effectively.",
+        "rationale": "With significant rainfall expected, a functional sump pump is crucial to manage water accumulation and prevent basement flooding."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "Stay indoors and away from windows during the storm due to high wind gusts.",
+        "rationale": "Wind gusts of 90 km/h pose a risk of flying debris and potential damage to the older asphalt shingle roof."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy rain & 90km/h winds expected. Move basement valuables, check sump pump, and stay indoors. Safety first! #HOM-1025",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Heavy rain and 90 km/h winds expected. Move basement valuables, ensure sump pump is clear, and stay indoors away from windows. Your safety is paramount."
+      }
+    },
+    "dispatch_id": "DISP-996E01B9"
+  },
+  "HOM-1026": {
+    "property_id": "HOM-1026",
+    "policyholder_name": "Emily Harris",
+    "contact": {
+      "phone": "+1-613-555-1026",
+      "email": "emily.harris26@example.ca"
+    },
+    "hazard_summary": {
+      "event": "rainfall warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": 80.0,
+      "snowfall_cm": 0.0,
+      "tornado_risk": false,
+      "lead_time_minutes": 180
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "semi_detached dwelling",
+        "unfinished basement",
+        "NO sump pump",
+        "NO backwater valve",
+        "metal roof (24 years old)"
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Move valuable items and electronics off the floor in the unfinished basement to protect them from potential water damage.",
+        "rationale": "With 80 mm of rain and no sump pump or backwater valve, the unfinished basement is at high risk of flooding or sewer backup."
+      },
+      {
+        "priority": 2,
+        "category": "LIFE_SAFETY",
+        "action": "Secure or bring indoors any loose outdoor items such as patio furniture, garbage bins, and garden tools.",
+        "rationale": "90 km/h wind gusts can turn unsecured objects into dangerous projectiles, causing property damage or injury."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Monitor for signs of water accumulation in the basement or around the foundation and be prepared to use towels or barriers if minor seepage occurs.",
+        "rationale": "Given the heavy rainfall and lack of active water mitigation systems (sump pump, backwater valve), continuous monitoring is crucial to detect and respond to water ingress promptly."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy rain & 90km/h winds expected. Move basement items off floor, secure outdoor objects, and monitor for water. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Heavy rainfall (80mm) and 90 km/h winds expected. Move basement items off floor, secure outdoor objects, and monitor for water ingress. Stay safe!"
+      }
+    },
+    "dispatch_id": "DISP-5F282D78"
+  },
+  "HOM-1027": {
+    "property_id": "HOM-1027",
+    "policyholder_name": "Sebastian Simard",
+    "contact": {
+      "phone": "+1-613-555-1027",
+      "email": "sebastian.simard27@example.ca"
+    },
+    "hazard_summary": {
+      "event": "rainfall warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": 80.0,
+      "snowfall_cm": 0.0,
+      "tornado_risk": false,
+      "lead_time_minutes": null
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "crawlspace basement"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement (UNINSURED)"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "VEHICLE_PROTECTION",
+        "action": "Move vehicles from street parking or low-lying areas to higher ground or a garage to prevent flood damage.",
+        "rationale": "Torrential rainfall and urban flash flooding risk, coupled with uninsured overland water coverage, poses a significant threat to vehicles."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Monitor your crawlspace for any signs of water intrusion or dampness, even with your sump pump and backwater valve.",
+        "rationale": "Extreme rainfall (up to 80 mm) can overwhelm drainage systems, potentially leading to water entry into the crawlspace despite existing protections."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "Secure or bring indoors any loose outdoor items such as patio furniture, garbage bins, and decorations.",
+        "rationale": "Wind gusts up to 90 km/h can turn unsecured objects into dangerous projectiles, causing property damage or injury."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Move vehicles to higher ground due to flash flood risk. Secure outdoor items. Do NOT climb ladders. Stay safe! #HOM1027",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Torrential rain and 90 km/h winds expected. Move vehicles, secure outdoor items, and monitor crawlspace. Do NOT climb ladders."
+      }
+    },
+    "dispatch_id": "DISP-1E33739F"
+  },
+  "HOM-1028": {
+    "property_id": "HOM-1028",
+    "policyholder_name": "Elizabeth Clark",
+    "contact": {
+      "phone": "+1-613-555-1028",
+      "email": "elizabeth.clark28@example.ca"
+    },
+    "hazard_summary": {
+      "event": "rainfall warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": 80.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": 180
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Highrise condo susceptible to wind damage on balconies and water ingress through windows/balcony doors during heavy rain."
+      ],
+      "coverage_gaps": []
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure all windows and balcony doors are tightly closed and locked to prevent water intrusion from heavy rainfall.",
+        "rationale": "Heavy rainfall (80 mm) and high winds (90 km/h) can force water into the dwelling through unsecured openings, leading to interior damage."
+      },
+      {
+        "priority": 2,
+        "category": "LIFE_SAFETY",
+        "action": "Secure all loose items on balconies and patios (e.g., furniture, planters, decorations) to prevent them from becoming dangerous projectiles in high winds.",
+        "rationale": "Wind gusts of 90 km/h can easily dislodge unsecured items, posing a significant safety risk to people and property below."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_SHELTER",
+        "action": "Stay informed about the storm's progression through local weather alerts and be prepared for potential power interruptions.",
+        "rationale": "Monitoring official weather updates ensures timely response to changing conditions, and preparing for outages helps maintain safety and comfort."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Storm alert for HOM-1028. Secure balcony items & close all windows/doors. High winds (90km/h) & heavy rain (80mm) expected. Stay safe!",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "High winds (90km/h) and heavy rain (80mm) expected for HOM-1028. Secure balcony items and ensure all windows/doors are tightly closed. Stay safe!"
+      }
+    },
+    "dispatch_id": "DISP-ADF9B7CE"
+  },
+  "HOM-1029": {
+    "property_id": "HOM-1029",
+    "policyholder_name": "David Leblanc",
+    "contact": {
+      "phone": "+1-613-555-1029",
+      "email": "david.leblanc29@example.ca"
+    },
+    "hazard_summary": {
+      "event": "rainfall warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": 80.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": 180
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "Finished basement",
+        "No backwater valve",
+        "Asphalt shingle roof (11 years old) vulnerable to high winds"
+      ],
+      "coverage_gaps": [
+        "Sewer Backup Endorsement: Basement sewer backup damage is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Move valuables and electronics from the basement floor to higher ground.",
+        "rationale": "Protects against potential urban flash flooding and uninsured sewer backup due to torrential downpours."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure all basement windows and ground-level doors are securely closed and sealed.",
+        "rationale": "Prevents water intrusion from heavy rainfall and reduces the risk of basement flooding."
+      },
+      {
+        "priority": 3,
+        "category": "LIFE_SAFETY",
+        "action": "Stay indoors and away from windows during the storm.",
+        "rationale": "High wind gusts (90 km/h) and heavy rainfall pose a risk of flying debris and structural damage."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy rain & 90km/h winds expected. Move basement valuables to higher ground. Stay indoors. Info: david.leblanc29@example.ca",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Heavy rain and 90 km/h winds expected. Move basement valuables to higher ground and ensure windows are sealed. Stay indoors."
+      }
+    },
+    "dispatch_id": "DISP-656B9B2F"
+  },
+  "HOM-1030": {
+    "property_id": "HOM-1030",
+    "policyholder_name": "Mila Lewis",
+    "contact": {
+      "phone": "+1-613-555-1030",
+      "email": "mila.lewis30@example.ca"
+    },
+    "hazard_summary": {
+      "event": "rainfall warning in effect",
+      "wind_gust_kmh": 90,
+      "hail_detected": false,
+      "hail_diameter_cm": null,
+      "hail_descriptor": null,
+      "rainfall_mm": 80.0,
+      "snowfall_cm": null,
+      "tornado_risk": false,
+      "lead_time_minutes": 180
+    },
+    "exposure_analysis": {
+      "vulnerabilities": [
+        "No sump pump",
+        "Unfinished basement (susceptible to water ingress)",
+        "Semi-detached dwelling (potential shared wall vulnerabilities)"
+      ],
+      "coverage_gaps": [
+        "Overland Water Endorsement: NO - Surface overland flood runoff is UNINSURED"
+      ]
+    },
+    "micro_actions": [
+      {
+        "priority": 1,
+        "category": "LIFE_SAFETY",
+        "action": "Secure or bring indoors any loose outdoor items such as patio furniture, garbage bins, and decorations to prevent them from becoming projectiles in 90 km/h wind gusts.",
+        "rationale": "High wind gusts pose a significant risk of property damage and injury from flying debris."
+      },
+      {
+        "priority": 2,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Move any valuable items, electronics, and important documents from your basement floor to higher ground or upper levels.",
+        "rationale": "With up to 80 mm of rain and no overland water coverage, there is a risk of urban flash flooding and sewer backup impacting your unfinished basement."
+      },
+      {
+        "priority": 3,
+        "category": "INDOOR_WATER_PROTECTION",
+        "action": "Ensure all basement windows and doors are securely closed and properly sealed to prevent water ingress from heavy rainfall and potential surface runoff.",
+        "rationale": "Heavy rainfall increases the risk of water entering through unsealed openings, especially with an unfinished basement and no sump pump."
+      }
+    ],
+    "safety_status": "VERIFIED_SAFE",
+    "channels": {
+      "sms": "Urgent: Heavy rain & 90 km/h winds expected. Secure outdoor items & move basement valuables to higher ground. Close basement windows. Stay safe! -PNC",
+      "push_notification": {
+        "title": "Urgent: Storm Mitigation Required",
+        "body": "Heavy rain (80mm) & 90 km/h winds expected. Secure outdoor items, move basement valuables to higher ground, and close basement windows. Overland water is uninsured. Stay safe!"
+      }
+    },
+    "dispatch_id": "DISP-E9E731EE"
   }
 }

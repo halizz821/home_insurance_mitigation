@@ -82,9 +82,7 @@ def build_reflection_critique_prompt(safety_violations: list[str], iteration_cou
         f"Your proposed mitigation advisory was REJECTED by safety invariants due to the following hazard violations:\n"
         f"{violations_text}\n\n"
         f"CORRECTIVE DIRECTIVE:\n"
-        f"You must self-correct immediately. Discard all hazardous outdoor instructions. "
-        f"Re-evaluate your deliberation scratchpad under [SAFETY INVARIANT EVALUATION] and formulate safe, indoor-only "
-        f"or sheltered micro-actions. Then regenerate the compliant advisory JSON."
+        f"You must self-correct accordingly."
     )
 
 

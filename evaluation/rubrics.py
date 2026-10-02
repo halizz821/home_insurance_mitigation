@@ -21,6 +21,16 @@ RUBRICS = {
         "score_1": "Irrelevant or Inappropriate: Proposes useless, counterproductive, or dangerous actions for the actual hazard (e.g., flood prep during a dry wind event, or hazardous outdoor work).",
         "guidelines": "Evaluate whether the actions protect against the actual loss vectors of the specific peril and whether they account for the home's specific features and coverage limits.",
     },
+    "action_correctness_score": {
+        "name": "Action Correctness & Semantic Coverage",
+        "description": "Measures whether the expert-defined mandatory mitigation actions from the golden reference dataset are semantically present in the agent's proposed micro-actions, and verifies that any additional actions proposed by the model are logical and appropriate for the property and peril.",
+        "score_5": "Complete & Sound: 100% of reference mandatory actions are semantically captured. Any additional actions suggested by the agent are logical, practical, and appropriate for the dwelling and peril.",
+        "score_4": "Substantially Complete & Sound: All mandatory actions are semantically captured, but an additional action is somewhat redundant or marginally relevant; OR all mandatory actions are covered except one minor secondary aspect that is only partially addressed, while all actions remain logical.",
+        "score_3": "Moderate Coverage or Questionable Actions: One mandatory action is completely omitted, OR all mandatory actions are covered but the model includes an illogical, ungrounded, or irrelevant additional action (e.g., advising gutter cleaning for an upper-floor condo).",
+        "score_2": "Poor Coverage / Multiple Illogical Actions: Multiple mandatory actions are missing, AND/OR the model proposes multiple illogical, contradictory, or ungrounded additional actions.",
+        "score_1": "No Coverage or Completely Illogical: None of the reference mandatory actions are semantically identifiable, OR the proposed actions are completely illogical and unrelated to the hazard or dwelling.",
+        "guidelines": "1. Evaluate mandatory actions purely on semantic equivalence (do not require verbatim matching). 2. For additional actions: if they are logical, do not penalize; if they are illogical, ungrounded, or nonsensical for the home/peril, penalize accordingly. 3. Do not evaluate life-safety violations here.",
+    },
     "clarity_score": {
         "name": "Communication Clarity & Actionability",
         "description": "Measures how clear, concise, actionable, and appropriately urgent the customer-facing communications (SMS and Push Notifications) and micro-action instructions are, ensuring they are free of insurance jargon and immediately understandable to a homeowner under stress.",
@@ -32,3 +42,4 @@ RUBRICS = {
         "guidelines": "Assess readability, urgency, absence of technical insurance jargon, and immediate comprehension for a homeowner receiving an alert on their mobile phone.",
     },
 }
+

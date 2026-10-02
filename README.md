@@ -128,7 +128,7 @@ cp .env_example .env
 ```
 ```env
 GOOGLE_API_KEY=your_gemini_api_key_here     # ReAct specialist & safety auditor
-OPENAI_API_KEY=your_openai_api_key_here     # 3-Prompt LLM Judge evaluation
+OPENAI_API_KEY=your_openai_api_key_here     # 4-Prompt LLM Judge evaluation
 ```
 
 ---
@@ -164,13 +164,20 @@ uv run python run_pipeline.py --simulate --properties HOM-1001 --demo-reflection
 
 ## 🧪 LLM-as-a-Judge Evaluation (`evaluate_pipeline.py`)
 
-Independent evaluation using **OpenAI GPT-4o** judging pre-generated advisories in `output/advisories.json` against independent SQLite ground truth and ECCC alerts:
+Independent evaluation using **OpenAI GPT-4o** judging pre-generated advisories in `output/advisories.json` against independent SQLite ground truth, ECCC alerts, and an expert-curated golden benchmark reference dataset ([`evaluation/golden_dataset.json`](evaluation/golden_dataset.json)):
 
 | Dimension | Rubric Criteria (Scale: 1 – 5) |
 | :--- | :--- |
-| **1. Faithfulness** | Factual grounding in alert & property context. Zero tolerance for hallucinated wind speeds, hail sizes, or fabricated policy terms. |
-| **2. Action Relevance** | Tailoring to dwelling vulnerabilities (roof age, foundation type) and explicit coverage gap warnings. |
-| **3. Communication Clarity** | Conciseness, urgency, actionability, and lead-time feasibility in SMS & Push notifications. |
+| **1. Faithfulness & Anti-Hallucination** | Factual grounding in alert & property context. Zero tolerance for hallucinated wind speeds, hail sizes, or fabricated policy terms. |
+| **2. Action Relevance & Property Tailoring** | Tailoring to dwelling vulnerabilities (roof age, foundation type) and explicit coverage gap warnings (unendorsed sewer backup / overland water). |
+| **3. Action Correctness & Semantic Coverage** | Measures whether expert-defined mandatory mitigation actions from the golden reference dataset are semantically captured, and verifies that any additional actions are logical, practical, and grounded in property details and alert text. |
+| **4. Communication Clarity & Actionability** | Conciseness, urgency, actionability, and lead-time feasibility in customer-facing SMS & Push notifications (jargon-free, character limits). |
+
+### Evaluation Methodology & Golden Benchmark Dataset
+The evaluation pipeline executes **four independent, single-responsibility LLM Judge calls** to prevent cognitive overload and halo effects:
+- **Dedicated Rubrics**: Each metric is evaluated under strict 1–5 scoring rubrics ([`evaluation/rubrics.py`](evaluation/rubrics.py)).
+- **Golden Reference Dataset ([`evaluation/golden_dataset.json`](evaluation/golden_dataset.json))**: Contains expert-curated mandatory loss-mitigation actions for benchmark properties across perils and dwelling types (detached, semi-detached, townhomes, high-rise condos).
+- **Semantic Coverage (Action Correctness)**: Assesses semantic equivalence rather than rigid keyword matching. Model-generated actions addressing multi-hazard warnings (e.g. torrential downpours during a severe thunderstorm) are rewarded if logical and physically plausible, while illogical actions (e.g. recommending roof repairs for a 10th-floor condo or ungrounded flood measures) are penalized.
 
 ```powershell
 # Evaluate all properties in output/advisories.json (simulated alerts)
@@ -188,14 +195,19 @@ uv run python evaluate_pipeline.py --alert-source simulated --properties HOM-105
 
 ## 📈 Benchmark Results
 
-Empirical evaluation from `evaluation.xlsx` across **42 diverse Canadian test properties** spanning 6 regions (including Ontario, Alberta, and Saskatchewan, covering major urban centres and remote edge cases such as **Wood Buffalo Nat. Park near Peace Point and Lake Claire, AB** with 80 mm rainfall & flood gap, and **Uranium City, SK** with a 95 km/h blizzard & aged roof):
+Comparative empirical evaluation of candidate LLM models powering the Tier 2 Property Specialist investigation loop across all four LLM-as-a-Judge dimensions, end-to-end execution latency, and average per-property inference cost:
 
-| Metric | Score (out of 5.0) | Assessment |
-| :--- | :---: | :--- |
-| **Faithfulness & Anti-Hallucination** | **4.95 / 5.0** | Factual grounding across weather alerts, structural specs, and policy terms with zero hallucinated peril metrics |
-| **Action Relevance & Property Tailoring** | **4.88 / 5.0** | Precise adaptation to dwelling age, basement/foundation type, and explicit unendorsed flood/sewer gaps |
-| **Communication Clarity & Actionability** | **4.93 / 5.0** | High urgency, conciseness, and feasible lead-time micro-actions in dispatched SMS and Push channels |
-| **Composite Quality Score** | **4.92 / 5.0** | **Production-grade reliability across full 42-property portfolio** |
+| Model | Action Correctness | Action Relevance | Clarity | Faithfulness | Avg Latency (s) | Avg Cost ($) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Gemini 3.5 Flash Lite** | 3.55 | 4.86 | 4.95 | 4.83 | 11.73 | $0.0093 |
+| **Gemini 2.5 Flash** | 3.62 | 4.83 | 4.88 | 5.00 | 29.33 | $0.0173 |
+| **GPT-4o mini** | 2.60 | 4.10 | 4.60 | 4.60 | 42.24 | $0.0051 |
+
+> [!TIP]
+> **Key Architectural Takeaways**:
+> - **Gemini 2.5 Flash** achieves perfect factual grounding (**5.00/5.0 Faithfulness**) and the highest action correctness (**3.62/5.0**), providing the highest reliability for underwriting and compliance standards.
+> - **Gemini 3.5 Flash Lite** offers the best balance of speed and quality with **11.73s average latency** (~2.5× faster than 2.5 Flash), top communication clarity (**4.95/5.0**), and near-parity relevance at sub-cent cost (**$0.0093/advisory**), making it well-suited for high-throughput severe weather alert bursts.
+> - **GPT-4o mini** has the lowest per-call dollar cost (**$0.0051**) but exhibits a significant drop in Action Correctness (**2.60/5.0**) and substantially higher latency (**42.24s**).
 
 ---
 
@@ -209,8 +221,9 @@ Empirical evaluation from `evaluation.xlsx` across **42 diverse Canadian test pr
 ├── output/
 │   └── advisories.json           # Consolidated agent mitigation advisories & dispatch audits
 ├── evaluation/                   # LLM-as-a-Judge Evaluation Module
-│   ├── llm_judge.py              # GPT-4o multi-prompt evaluator (Faithfulness, Relevance, Clarity)
+│   ├── llm_judge.py              # GPT-4o 4-call evaluator (Faithfulness, Relevance, Correctness, Clarity)
 │   ├── rubrics.py                # 5-point evaluation rubrics & scoring criteria
+│   ├── golden_dataset.json       # Expert-curated mandatory actions reference benchmark
 │   ├── excel_exporter.py         # Formatted two-sheet Excel report generator
 │   └── state.py                  # Pydantic evaluation schemas & evaluation models
 ├── sentinel_system/              # Tier 1: Macro Screening & GIS Spatial Engine

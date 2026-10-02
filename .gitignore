@@ -12,6 +12,10 @@ at_risk_candidates.json
 explore_search_alerts.py
 flowchart.png
 notes.docx
+*.xlsx
+!evaluation.xlsx
+.langgraph_api/
+output/advisories_old.json
 
 /sentinel_system/*.toml
 /sentinel_system/*.lock

@@ -84,3 +84,8 @@ def build_property_agent_graph():
     workflow.add_edge("dispatch_node", END)
 
     return workflow.compile()
+
+
+# Compiled graph instance for LangGraph Studio / CLI
+graph = build_property_agent_graph()
+

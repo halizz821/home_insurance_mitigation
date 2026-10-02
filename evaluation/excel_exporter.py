@@ -81,7 +81,7 @@ def export_evaluation_to_excel(
     ws_results.views.sheetView[0].showGridLines = True
 
     # Title Banner
-    ws_results.merge_cells("A1:Q1")
+    ws_results.merge_cells("A1:T1")
     title_cell = ws_results["A1"]
     title_cell.value = "Autonomous Insurance Agent Evaluation - Benchmark Ground Truth vs Agent Dispatches vs LLM Judge"
     title_cell.font = title_font
@@ -92,11 +92,12 @@ def export_evaluation_to_excel(
     total_evals = len(results)
     avg_faith = sum(r["judgment"].faithfulness_score for r in results) / total_evals if total_evals else 0
     avg_rel = sum(r["judgment"].action_relevance_score for r in results) / total_evals if total_evals else 0
+    avg_corr = sum(r["judgment"].action_correctness_score for r in results) / total_evals if total_evals else 0
     avg_clar = sum(r["judgment"].clarity_score for r in results) / total_evals if total_evals else 0
-    composite_avg = (avg_faith + avg_rel + avg_clar) / 3.0 if total_evals else 0
+    composite_avg = (avg_faith + avg_rel + avg_corr + avg_clar) / 4.0 if total_evals else 0
 
-    kpi_labels = ["Properties Evaluated", "Avg Faithfulness (1-5)", "Avg Action Relevance (1-5)", "Avg Clarity (1-5)", "Overall Composite Quality"]
-    kpi_values = [total_evals, f"{avg_faith:.2f} / 5.0", f"{avg_rel:.2f} / 5.0", f"{avg_clar:.2f} / 5.0", f"{composite_avg:.2f} / 5.0"]
+    kpi_labels = ["Properties Evaluated", "Avg Faithfulness (1-5)", "Avg Action Relevance (1-5)", "Avg Action Correctness (1-5)", "Avg Clarity (1-5)", "Overall Composite Quality"]
+    kpi_values = [total_evals, f"{avg_faith:.2f} / 5.0", f"{avg_rel:.2f} / 5.0", f"{avg_corr:.2f} / 5.0", f"{avg_clar:.2f} / 5.0", f"{composite_avg:.2f} / 5.0"]
 
     for col_idx, (lbl, val) in enumerate(zip(kpi_labels, kpi_values), start=1):
         cell_lbl = ws_results.cell(row=3, column=col_idx, value=lbl)
@@ -119,10 +120,10 @@ def export_evaluation_to_excel(
     # -------------------------------------------------------------------------
     super_headers = [
         (1, 3, "TARGET PROPERTY", target_super_fill),
-        (4, 6, "GROUND TRUTH CONTEXT (BENCHMARK TRUTH)", gt_super_fill),
-        (7, 10, "AGENT OUTPUT (EVALUATED ARTIFACTS)", agent_super_fill),
-        (11, 16, "LLM JUDGE EVALUATION & JUSTIFICATIONS", judge_super_fill),
-        (17, 17, "COMPOSITE", comp_super_fill),
+        (4, 7, "GROUND TRUTH CONTEXT (BENCHMARK TRUTH)", gt_super_fill),
+        (8, 11, "AGENT OUTPUT (EVALUATED ARTIFACTS)", agent_super_fill),
+        (12, 19, "LLM JUDGE EVALUATION & JUSTIFICATIONS", judge_super_fill),
+        (20, 20, "COMPOSITE", comp_super_fill),
     ]
 
     ws_results.row_dimensions[5].height = 24
@@ -146,23 +147,26 @@ def export_evaluation_to_excel(
         ("Property ID", target_header_fill),
         ("Policyholder & Address", target_header_fill),
         ("City / Province", target_header_fill),
-        # Ground Truth Context (Cols 4-6)
+        # Ground Truth Context (Cols 4-7)
         ("GT Weather Alert & Metrics", gt_header_fill),
         ("GT Dwelling Specifications", gt_header_fill),
         ("GT Policy Coverage & Gaps", gt_header_fill),
-        # Agent Evaluated Output (Cols 7-10)
+        ("Golden Mandatory Actions", gt_header_fill),
+        # Agent Evaluated Output (Cols 8-11)
         ("Agent Hazard & Risk Assessment", agent_header_fill),
         ("Agent Proposed Micro-Actions", agent_header_fill),
         ("Agent Dispatched SMS", agent_header_fill),
         ("Agent Push Notification", agent_header_fill),
-        # LLM Judge Scores & Justifications (Cols 11-16)
+        # LLM Judge Scores & Justifications (Cols 12-19)
         ("Faithfulness\n(1-5)", judge_header_fill),
         ("Faithfulness Justification", judge_header_fill),
         ("Action Relevance\n(1-5)", judge_header_fill),
         ("Action Relevance Justification", judge_header_fill),
+        ("Action Correctness\n(1-5)", judge_header_fill),
+        ("Action Correctness Justification", judge_header_fill),
         ("Clarity\n(1-5)", judge_header_fill),
         ("Clarity Justification", judge_header_fill),
-        # Composite Score (Col 17)
+        # Composite Score (Col 20)
         ("Composite\nQuality (1-5)", comp_header_fill),
     ]
 
@@ -180,7 +184,7 @@ def export_evaluation_to_excel(
     current_row = 7
     for r in results:
         j: EvaluationJudgment = r["judgment"]
-        comp = (j.faithfulness_score + j.action_relevance_score + j.clarity_score) / 3.0
+        comp = (j.faithfulness_score + j.action_relevance_score + j.action_correctness_score + j.clarity_score) / 4.0
         prop = r.get("property_context", {})
         alert = r.get("alert_context", {})
         advisory = r.get("agent_advisory", {})
@@ -188,6 +192,7 @@ def export_evaluation_to_excel(
         actions = advisory.get("micro_actions", [])
         hazard_summary = advisory.get("hazard_summary", {})
         exposure_analysis = advisory.get("exposure_analysis", {})
+        mandatory_actions = r.get("mandatory_actions", [])
 
         # 1. Format Ground Truth
         gt_alert_str = (
@@ -211,6 +216,8 @@ def export_evaluation_to_excel(
             f"Base Deductible: ${prop.get('base_deductible', 1000)}\n"
             f"Wind/Hail Deductible: ${prop.get('wind_hail_deductible', 1500)}"
         )
+
+        gt_mandatory_actions_str = "\n\n".join(f"• {act}" for act in mandatory_actions) if mandatory_actions else "No benchmark actions defined"
 
         # 2. Format Agent Evaluated Output
         agent_hazard_str = (
@@ -242,6 +249,7 @@ def export_evaluation_to_excel(
             gt_alert_str,
             gt_dwelling_str,
             gt_policy_str,
+            gt_mandatory_actions_str,
             # Agent Output
             agent_hazard_str,
             actions_str,
@@ -252,6 +260,8 @@ def export_evaluation_to_excel(
             j.faithfulness_justification,
             j.action_relevance_score,
             j.action_relevance_justification,
+            j.action_correctness_score,
+            j.action_correctness_justification,
             j.clarity_score,
             j.clarity_justification,
             round(comp, 2),
@@ -269,12 +279,13 @@ def export_evaluation_to_excel(
                 cell.alignment = center_align
             elif col_idx in (2, 3):  # Address / City
                 cell.alignment = center_align
-            elif col_idx in (11, 13, 15, 17):  # Scores
+            elif col_idx in (12, 14, 16, 18, 20):  # Scores
                 _format_score_cell(cell, float(val))
             else:  # Text & Justifications
                 cell.alignment = left_wrap
 
         current_row += 1
+
 
     # =========================================================================
     # SHEET 2: Rubrics (Scoring Criteria 1-5)
@@ -342,17 +353,20 @@ def export_evaluation_to_excel(
             4: 38,   # GT Weather Alert & Metrics
             5: 28,   # GT Dwelling Specs
             6: 30,   # GT Policy Coverage & Gaps
-            7: 35,   # Agent Hazard & Risk Assessment
-            8: 48,   # Agent Proposed Micro-Actions
-            9: 35,   # Agent Dispatched SMS
-            10: 35,  # Agent Push Notification
-            11: 14,  # Faithfulness Score
-            12: 42,  # Faithfulness Justification
-            13: 15,  # Action Relevance Score
-            14: 42,  # Action Relevance Justification
-            15: 14,  # Clarity Score
-            16: 42,  # Clarity Justification
-            17: 16,  # Composite Quality Score
+            7: 42,   # Golden Mandatory Actions
+            8: 35,   # Agent Hazard & Risk Assessment
+            9: 48,   # Agent Proposed Micro-Actions
+            10: 35,  # Agent Dispatched SMS
+            11: 35,  # Agent Push Notification
+            12: 14,  # Faithfulness Score
+            13: 42,  # Faithfulness Justification
+            14: 15,  # Action Relevance Score
+            15: 42,  # Action Relevance Justification
+            16: 15,  # Action Correctness Score
+            17: 42,  # Action Correctness Justification
+            18: 14,  # Clarity Score
+            19: 42,  # Clarity Justification
+            20: 16,  # Composite Quality Score
         },
         "Rubrics": {
             1: 25, 2: 35, 3: 35, 4: 35, 5: 35, 6: 35, 7: 35

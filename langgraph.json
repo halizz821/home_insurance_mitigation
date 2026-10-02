@@ -1,0 +1,9 @@
+{
+    "dependencies": [
+        "."
+    ],
+    "graphs": {
+        "property_agent": "property_investigator.agent.graph:graph"
+    },
+    "env": ".env"
+}
